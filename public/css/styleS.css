@@ -1,0 +1,190 @@
+/*!
+ * IE10 viewport hack for Surface/desktop Windows 8 bug
+ * Copyright 2014-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+/*
+ * See the Getting Started docs for more information:
+ * http://getbootstrap.com/getting-started/#support-ie10-width
+ */
+@-webkit-viewport { width: device-width; }
+@-moz-viewport    { width: device-width; }
+@-ms-viewport     { width: device-width; }
+@-o-viewport      { width: device-width; }
+@viewport         { width: device-width; }
+
+
+footer{
+	position: fixed;
+	bottom: 0;
+}
+
+@media (max-height:800px){
+	footer {
+    position: static;
+  }
+}
+
+.center{
+	text-align: center;
+}
+
+.move-item{position:relative}
+.move-bg-icon{
+  width:82px;
+  height:82px;
+  display:inline-block;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:#1C8AF2;
+  overflow:hidden;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+
+.link-block{color:#6d6e71;overflow:hidden;text-align:center;padding:16px 18px;margin-bottom:23px;display:block;text-decoration:none;border:1px solid #e0e0e0}
+.link-block:hover{background:url(../images/other/26.png) repeat-x bottom #efefef;color:#333;margin-bottom:24px;border-bottom:0px}
+.icon-1{background-image:url(../images/home/paquete.png)}
+.icon-2{background-image:url(../images/home/sede.png)}
+.icon-3{background-image:url(../images/home/servicio.png)}
+.icon-4{background-image:url(../images/home/contactenos.png)}
+.icon-5{background-image:url(../images/home/medicamento.png)}
+.icon-6{background-image:url(../images/home/vendaje.png)}
+.labs-block{color:#6d6e71;overflow:hidden;text-align:center;padding:16px 18px;margin-bottom:23px;display:block;text-decoration:none;border:1px solid #e0e0e0}
+
+hr.style-eight {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr.style-eight:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+
+hr.style-four {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Margin es para espacio arriba de .. */
+.margin-80 {
+    margin: 80px 0;
+}
+.space-30 {
+    padding-top: 30px;
+}
+
+/* Tipos de titulos (title - text-lead) */
+.title {
+  font-size: 50px;
+  color: #36708D;
+}
+.text-lead{
+  font-size: 31px;
+  color: #36708D;
+}
+.featurette-image {
+	padding-top: 35px
+}
+
+.featurette-image:hover {
+	-webkit-transform:scale(1.2);
+	transform:scale(1.2);
+	-webkit-transition:all 1.9s ease; /* Safari y Chrome */
+	-moz-transition:all 1.9s ease; /* Firefox */
+	-o-transition:all 1.9s ease; /* IE 9 */
+	-ms-transition:all 1.9s ease; /* Opera */
+}
+.span3{
+	width: 260px;
+	margin-right: 10px;
+  margin-left: 10px;
+	margin-top: 10px;
+	display: inline-block;
+}
+.post{
+	position:relative;
+	background:url(../images/other/42.png) no-repeat right bottom;
+	margin-bottom:20px;
+	padding-bottom:10px
+}
+.img-border{
+	border:1px solid #e7e7e7
+}
+.img-block{
+	margin:6px 6px 5px;
+	position:relative;
+}
+.link-img{
+	position:relative;
+	display:block;
+	max-width:100%;
+	overflow:hidden;
+	display:block;
+	text-decoration:none;
+	margin-bottom:6px
+}
+.link-img:hover{}
+
+figure {
+	position: relative;
+}
+figure::before {
+	position: absolute;
+	top: 0;
+	left: -75%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 50%;
+	height: 100%;
+	background: -webkit-linear-gradient(left, rgba(0, 0, 2, 0) 0%, rgba(0, 0, 2, .1) 100%);
+	background: linear-gradient(to right, rgba(0, 0, 2, 0) 0%, rgba(0, 0, 2, .1v) 100%);
+	-webkit-transform: skewX(-25deg);
+	transform: skewX(-25deg);
+}
+figure:hover::before {
+	-webkit-animation: shine .75s;
+	animation: shine .75s;
+}
+@-webkit-keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+.back-top{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:70px;
+  height:70px;
+	border-radius: 50%;
+  background:url(../images/other/up.png);
+	background-size: cover;
+}
+.back-top a{
+  display:block;
+  width:100%;
+  height:100%
+}
+
+blockquote.blue{
+	border-left: 5px solid #36708D;
+}

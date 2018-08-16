@@ -23,6 +23,13 @@ Route::get('serfarltda/', [
 Route::get('serfarltda/Laboraty', [
     'as' => 'Laboraty', 'uses' => 'LaboratoryController@index'
 ]);
+Route::get('serfarltda/Aboutus', [
+    'as' => 'Aboutus', 'uses' => 'AboutusController@index'
+]);
+Route::get('serfarltda/ContactL', [
+    'as' => 'ContactL', 'uses' => 'ContactLController@index'
+]);
 //Route::resource('serfar','welcomeController');
 //Route::resource('serfarltda','HomeLController');
 //Route::resource('Laboraty','LaboratoryController');
+Route::resource('ContactL','ContactLController');

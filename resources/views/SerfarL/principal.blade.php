@@ -56,8 +56,8 @@
                     </ul>
                   </li>
                   <li id="li-lab"><a href="{{route('Laboraty')}}">Laboratorios</a></li>
-                  <li id="li-qui"><a href="about-us.html">Quienes somos</a></li>
-                  <li id="li-con"><a href="">Contacto</a></li>
+                  <li id="li-qui"><a href="{{route('Aboutus')}}">Quienes somos</a></li>
+                  <li id="li-con"><a href="{{route('ContactL')}}">Contacto</a></li>
                 </ul>
               </div>
             </div>

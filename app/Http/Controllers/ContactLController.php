@@ -3,6 +3,9 @@
 namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Mail;
+use Session;
+use Redirect;
 
 class ContactLController extends Controller
 {
@@ -34,7 +37,13 @@ class ContactLController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Mail::send('SerfarL.emailL', $request->all(), function($msj){
+          $msj->subject('Solicitud Pagina Web Serfar');
+          $msj->to('serfar.sytem@gmail.com');
+        });
+        Session::flash('message','Mensaje enviado correctamente');
+        //return $request->input('motivo');
+        return Redirect::to('/ContactL');
     }
 
     /**

@@ -5,33 +5,42 @@
 @section('content')
   <div class="container">
     <div class="text-center title ">
-      Contactenos
+      Contacte con Nosotros
     </div><br><br>
-    {{ csrf_field() }}
     <form class="" action="/ContactL" method="post">
+      {{ csrf_field() }}
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nombre">
+            <input type="text" class="form-control" name="nombre" placeholder="nombre">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Empresa">
+            <input type="text" class="form-control" name="empresa" placeholder="empresa">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Correo">
+            <input type="email" class="form-control" name="correo" placeholder="correo">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Telefono">
+            <input type="text" class="form-control" name="telefono" placeholder="telefono">
           </div>
           <!--<div class="form-group">
             <input type="text" class="form-control" placeholder="Text input">
           </div>-->
         </div>
         <div class="col-md-6">
-          <textarea class="form-control" rows="4" placeholder="Descripción"></textarea>
+          <div class="form-group">
+            Asunto:
+            <select class="form-control" name="Asunto">
+              <option value="Servicio al cliente">Servicio al cliente</option>
+              <option value="Ventas">Ventas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="4" name="mensaje" placeholder="Descripción"></textarea>
+          </div>
         </div>
       </div>
-      <input type="submit" class="btn btn-primary" value="Enviar">
+      <input id="enviar" type="submit" class="btn btn-primary" value="Enviar">
     </form>
   </div>
 @endsection

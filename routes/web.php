@@ -14,9 +14,10 @@
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/', function () {
-    return view('welcomeController');
-});
+Route::get('/', [
+      'as' => 'Swelcome', 'uses' => 'welcomeController@index'
+    //return view('Swelcome');
+]);
 Route::get('serfarltda/', [
     'as' => 'routeHome', 'uses' => 'HomeLController@index'
 ]);
@@ -29,6 +30,9 @@ Route::get('serfarltda/Aboutus', [
 Route::get('serfarltda/ContactL', [
     'as' => 'ContactL', 'uses' => 'ContactLController@index'
 ]);
+Route::get('serfarltda/error', function(){
+  return view('fragment.error');
+});
 //Route::resource('serfar','welcomeController');
 //Route::resource('serfarltda','HomeLController');
 //Route::resource('Laboraty','LaboratoryController');

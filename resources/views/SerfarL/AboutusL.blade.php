@@ -46,12 +46,12 @@
       <!--<hr class="style-four"-->
       <blockquote class="blue">
         <p class="lead">
-          Somos una empresa, reconocida por su compromiso integral con la comunidad,
-          en la prestación de servicios de atención farmacéutica, suministro, comercialización
-          y distribución de medicamentos e insumos hospitalarios de alta calidad,
-          a costo racional, contando con un servicio ágil, eficaz, competitivo, y
-          flexible, comprometiendo a nuestros colaboradores con los objetivos y
-          valores de la organización.
+          Somos una empresa innovadora, reconocida por su compromiso integral con la
+          comunidad y su equipo de trabajo; dedicada a la prestación de servicios 
+          de atención farmacéutica, suministros, comercialización y distribución
+          de medicamentos, insumos hospitalarios y odontológicos, contando con
+          un servicio ágil, de calidad, eficaz y competitivo, comprometido a
+          nuestros colaboradores, con los objetivos y valores de nuestra organización.
         </p>
       </blockquote>
     </div>
@@ -61,12 +61,10 @@
     </div>
     <blockquote class="blue">
       <p class="lead">
-        Serfar Ltda, en 2.017 será la empresa líder en la distribución y suministro
-        de medicamentos genéricos, comerciales, y material medico quirúrgico de
-        la mas alta calidad con valores agregados en asesoría a clientes y usuarios
-        finales en toda la Costa Norte de Colombia.
-
-        Desarrollará la comercialización de venta público, con proyección y presencia nacional.
+        En 2027 seremos la empresa lider en la distribución y suministro de medicamentos genéricos,
+        comerciales, material médico quirúrgico y odontológico de alta calidad, con valores agregados
+        en asesorías permanentes a nuestros clientes y usuarios finales en todo el norte y centro del
+        territorio Colombiano.
       </p>
     </blockquote>
     <div class="space-30">

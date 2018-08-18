@@ -4,7 +4,7 @@
     <title>Contactos</title>
   </head>
   <body>
-    <h2> Solicitud de {!! $motivo !!}</h2>
+    <h2> Solicitud de {!! $Asunto !!}</h2>
     <p><strong>Nombre:</strong>{!! $nombre !!}</p>
     <p><strong>Empresa:</strong>{!! $empresa !!}</p>
     <p><strong>Correo:</strong>{!! $correo !!}</p>

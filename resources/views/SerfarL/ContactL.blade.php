@@ -7,21 +7,22 @@
     <div class="text-center title ">
       Contacte con Nosotros
     </div><br><br>
+    @include('fragment.error')
     <form class="" action="/ContactL" method="post">
       {{ csrf_field() }}
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <input type="text" class="form-control" name="nombre" placeholder="nombre">
+            <input type="text" class="form-control" name="nombre" required placeholder="nombre">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" name="empresa" placeholder="empresa">
+            <input type="text" class="form-control" name="empresa" required placeholder="empresa">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" name="correo" placeholder="correo">
+            <input type="email" class="form-control" name="correo" required placeholder="correo">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" name="telefono" placeholder="telefono">
+            <input type="text" class="form-control" name="telefono" required placeholder="telefono">
           </div>
           <!--<div class="form-group">
             <input type="text" class="form-control" placeholder="Text input">
@@ -36,7 +37,7 @@
             </select>
           </div>
           <div class="form-group">
-            <textarea class="form-control" rows="4" name="mensaje" placeholder="Descripción"></textarea>
+            <textarea class="form-control" rows="4" name="mensaje" required placeholder="Descripción"></textarea>
           </div>
         </div>
       </div>

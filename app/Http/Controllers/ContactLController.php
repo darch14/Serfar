@@ -37,9 +37,17 @@ class ContactLController extends Controller
      */
     public function store(Request $request)
     {
+      /*
+      $this->validate($request, [
+        'nombre' => 'required',
+        'empresa' => 'required',
+        'correo' => 'required|email',
+        'descripcion' => 'required'
+      ]);*/
+
         Mail::send('SerfarL.emailL', $request->all(), function($msj){
           $msj->subject('Solicitud Pagina Web Serfar');
-          $msj->to('serfar.sytem@gmail.com');
+          $msj->to('web.serfar@gmail.com');
         });
         Session::flash('message','Mensaje enviado correctamente');
         //return $request->input('motivo');

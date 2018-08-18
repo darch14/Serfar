@@ -8,7 +8,7 @@
     <!-- Bootstrap Style -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+
     <link rel="stylesheet" type="text/css" href="{{asset('css/welcomeCss.css')}}">
   </head>
   <body>
@@ -36,7 +36,7 @@
     </div>
     <div class="content">
       <div class="rwd_col1">
-        <a href="" class="">
+        <a href="{{route('routeHome')}}" class="">
           <img src="{{asset('images/logos/logoInicio.png')}}" alt="Serfar Ltda" class="rounded-circle img-SL imagen" width="200px" height="200px" style="border: double;">
         </a>
       </div>

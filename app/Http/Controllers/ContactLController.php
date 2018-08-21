@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Mail;
 use Session;
 use Redirect;
+use Validator;
 
 class ContactLController extends Controller
 {
@@ -37,21 +38,46 @@ class ContactLController extends Controller
      */
     public function store(Request $request)
     {
-      /*
-      $this->validate($request, [
+      $data = [
+        'nombre' =>$request->input('nombre'),
+        'empresa' =>$request->input('empresa'),
+        'correo' =>$request->input('correo'),
+        'telefono' =>$request->input('telefono'),
+        'mensaje' =>$request->input('mensaje'),
+      ];
+      $rules = [
         'nombre' => 'required',
         'empresa' => 'required',
-        'correo' => 'required|email',
-        'descripcion' => 'required'
-      ]);*/
+        'correo' => 'required|email|max:255',
+        'telefono' => 'required',
+        'mensaje' => 'required'
+      ];
+      $messages = [
+        'nombre.required' => 'El Nombre es requerido',
+        'empresa.required'  => 'La Empresa es requerida',
+        'correo.required' => 'El Correo es requerido',
+        'telefono.required'  => 'La Telefono es requerido',
+        'mensaje.required' => 'La Descripción es requerido'
+      ];
+      //$this->validate($request, $rules, $messages);
+      $validator = Validator::make($data, $rules, $messages);
 
+      if ($validator -> fails()) {
+        return redirect()->back()
+          ->withErrors($v->errors())
+          ->withInput(/*Request::except('')*/);
+      }else {
+        //return $request->input('nombre');
         Mail::send('SerfarL.emailL', $request->all(), function($msj){
           $msj->subject('Solicitud Pagina Web Serfar');
           $msj->to('web.serfar@gmail.com');
         });
         Session::flash('message','Mensaje enviado correctamente');
-        //return $request->input('motivo');
-        return Redirect::to('/ContactL');
+        return back();
+      }
+
+      //returna con valores // return redirect('form')->withInput($request->except('Asunto'));
+      //retorna una ruta resourse // return Redirect::to('/ContactL');
     }
 
     /**

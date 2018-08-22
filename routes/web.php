@@ -24,12 +24,16 @@ Route::get('serfarltda/', [
 Route::get('serfarltda/Laboraty', [
     'as' => 'Laboraty', 'uses' => 'LaboratoryController@index'
 ]);
-Route::get('serfarltda/Aboutus', [
+Route::get('serfarltda/About', [
     'as' => 'Aboutus', 'uses' => 'AboutusController@index'
 ]);
 Route::get('serfarltda/ContactL', [
     'as' => 'ContactL', 'uses' => 'ContactLController@index'
 ]);
+Route::get('serfarltda/Medicament', [
+    'as' => 'Medicament', 'uses' => 'MedicamentController@index'
+]);
+
 Route::get('serfarltda/error', function(){
   return view('fragment.error');
 });

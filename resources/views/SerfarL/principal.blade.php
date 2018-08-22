@@ -42,7 +42,7 @@
                   <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{route('Swelcome')}}">
-                  <img src="{{asset('images/logos/favicon.png')}}" alt="Logo Serfar">
+                  <img src="{{asset('images/logos/favicon.png')}}">
                 </a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">

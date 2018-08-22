@@ -64,7 +64,7 @@ class ContactLController extends Controller
 
       if ($validator -> fails()) {
         return redirect()->back()
-          ->withErrors($v->errors())
+          ->withErrors($validator->errors())
           ->withInput(/*Request::except('')*/);
       }else {
         //return $request->input('nombre');

@@ -11,9 +11,10 @@
     <div class="row featurette">
       <div class="col-md-6">
         <h2 class="featurette-heading">Nuestra Sede</h2>
+
         <p class="lead">
-          Luego de 8 años de funcionamiento, construimos nuestra sede propia;
-          con las normas de calidad más altas y exigidas por los entes de salud,
+          Luego de {{$ano = date('Y')-2007}} años de funcionamiento, con las
+          normas de calidad más altas y exigidas por los entes de salud,
           garantizando así una logística oportuna y un almacenaje con el ambiente
           propicio para que todos nuestros productos se conserven correctamente.
         </p>
@@ -26,20 +27,20 @@
     <h2 class="featurette-heading text-center">Historia</h2><br>
     <p class="lead text-center">
       SERFAR LTDA. inicia sus labores el 29 de junio de 2007, con cubrimiento
-      inicial en la ciudad de Barranquilla, extendiéndose así en estos 8 años
+      inicial en la ciudad de Barranquilla, extendiéndose así en estos {{date('Y')-2007}} años
       en los departamentos de Sucre, Córdoba, Magdalena, Cesar, La Guajira y
-      Bolívar. Actualmente cuenta con 20 empleados. Somos una empresa privada,
-      sólida, dedicada a la prestación de servicios de atención Farmacéutica,
-      suministro, comercialización y distribución de medicamentos e Insumos
-      hospitalarios a las entidades del sector de la salud, brindando apoyo
-      clínico y administrativo de alta calidad, cuyo único fin es la promoción,
-      prevención y recuperación de la salud individual y colectiva de nuestros
-      usuarios basados en el uso racional de los medicamentos. Hemos tomado
-      como base fundamental de nuestro desarrollo el factor humano, para que
-      con cumplimiento y responsabilidad nuestros clientes puedan satisfacer
-      sus necesidades buscando así el continuo progreso personal y profesional
-      de quienes conforman la organización, con grandes capacidades de liderazgo
-      en el mercado nacional, siendo la salud de los colombianos nuestro principal compromiso.
+      Bolívar. Actualmente Somos una empresa privada, sólida, dedicada a la
+      prestación de servicios de atención farmacéutica, suministro, comercialización 
+      y distribución de medicamentos e insumos hospitalarios a las entidades del
+      sector de la salud, brindando apoyo clínico y administrativo de alta calidad,
+      cuyo único fin es la promoción, prevención y recuperación de la salud
+      individual y colectiva de nuestros usuarios basados en el uso racional de
+      los medicamentos. Hemos tomado como base fundamental de nuestro desarrollo
+      el factor humano, para que con cumplimiento y responsabilidad nuestros
+      clientes puedan satisfacer sus necesidades buscando así el continuo progreso
+      personal y profesional de quienes conforman la organización, con grandes
+      capacidades de liderazgo en el mercado nacional, siendo la salud de los
+      colombianos nuestro principal compromiso.
     </p>
     <div class="space-30">
       <h1 class="text-lead">Mision</h1><br>
@@ -47,7 +48,7 @@
       <blockquote class="blue">
         <p class="lead">
           Somos una empresa innovadora, reconocida por su compromiso integral con la
-          comunidad y su equipo de trabajo; dedicada a la prestación de servicios 
+          comunidad y su equipo de trabajo; dedicada a la prestación de servicios
           de atención farmacéutica, suministros, comercialización y distribución
           de medicamentos, insumos hospitalarios y odontológicos, contando con
           un servicio ágil, de calidad, eficaz y competitivo, comprometido a

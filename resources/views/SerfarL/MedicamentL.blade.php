@@ -1,6 +1,6 @@
 @extends('view')
 
-@section('title', '')
+@section('title', '- Medicament')
 
 @section('content')
 

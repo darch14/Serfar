@@ -15,7 +15,7 @@
     return view('welcome');
 });*/
 Route::get('/', [
-      'as' => 'Swelcome', 'uses' => 'welcomeController@index'
+    'as' => 'Swelcome', 'uses' => 'welcomeController@index'
     //return view('Swelcome');
 ]);
 Route::get('serfarltda/', [
@@ -41,3 +41,7 @@ Route::get('serfarltda/error', function(){
 //Route::resource('serfarltda','HomeLController');
 //Route::resource('Laboraty','LaboratoryController');
 Route::resource('ContactL','ContactLController');
+
+Auth::routes();
+
+Route::get('serfarltda/Authentication', 'HomeController@index')->name('home');

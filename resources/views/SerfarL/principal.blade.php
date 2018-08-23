@@ -51,7 +51,7 @@
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="">Portafolio <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li id="li-med"><a href="">Medicamentos</a></li>
+                      <li id="li-med"><a href="{{route('Medicament')}}">Medicamentos</a></li>
                       <li id="li-dis"><a href="">Dispositios Medicos</a></li>
                     </ul>
                   </li>

@@ -33,6 +33,9 @@ Route::get('serfarltda/ContactL', [
 Route::get('serfarltda/Medicament', [
     'as' => 'Medicament', 'uses' => 'MedicamentController@index'
 ]);
+Route::get('serfarltda/Admin', [
+    'as' => 'Admin', 'uses' => 'AdminHomeLController@index'
+]);
 
 Route::get('serfarltda/error', function(){
   return view('fragment.error');

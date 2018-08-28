@@ -33,9 +33,6 @@ Route::get('serfarltda/ContactL', [
 Route::get('serfarltda/Medicament', [
     'as' => 'Medicament', 'uses' => 'MedicamentController@index'
 ]);
-Route::get('serfarltda/Admin', [
-    'as' => 'Admin', 'uses' => 'AdminHomeLController@index'
-]);
 
 Route::get('serfarltda/error', function(){
   return view('fragment.error');
@@ -44,7 +41,7 @@ Route::get('serfarltda/error', function(){
 //Route::resource('serfarltda','HomeLController');
 //Route::resource('Laboraty','LaboratoryController');
 Route::resource('ContactL','ContactLController');
-
+Route::resource('Advisor','AdvisorController');
 Auth::routes();
 
 Route::get('serfarltda/Authentication', 'HomeController@index')->name('home');

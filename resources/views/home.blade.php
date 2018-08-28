@@ -1,23 +1,82 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+    <title>{{ config('app.name', 'Serfar') }}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img alt="Brand" src="{{asset('images/logos/favicon.png')}}"></a>
         </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                {{ Auth::user()->name }} <span class="caret"></span></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a></li>
+              </ul>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="{{route('home')}}">Home <span class="sr-only">(current)</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Asesores <span class="caret"></span></a>
+              <ul class="nav dropdown-menu">
+                <li> <a href="#">Listado de Asesores</a> </li>
+                <li> <a href="{{route('Advisor.index')}}">Registrar Asesor</a> </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Laboratorios <span class="caret"></span></a>
+              <ul class="nav dropdown-menu">
+                <li> <a href="#">Listado de Laboratorios</a> </li>
+                <li> <a href="#">Registrar laboratorio</a> </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Catalogo <span class="caret"></span></a>
+              <ul class="nav dropdown-menu">
+                <li> <a href="#">Listado de Catalogos</a> </li>
+                <li> <a href="#">Registrar</a> </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          @yield('content')
+        </div>
+      </div>
     </div>
-</div>
-@endsection
+    <!-- Contenido -->
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
+  </body>
+</html>

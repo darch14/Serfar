@@ -3,6 +3,9 @@
 namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Serfar\advisor;
+use Serfar\image;
+use Illuminate\Support\Facades\Storage;
 
 class AdvisorController extends Controller
 {
@@ -34,12 +37,24 @@ class AdvisorController extends Controller
      */
     public function store(Request $request)
     {
-      /*
-        $file = $request->file('file');
-        $name = 'Asesor_' . time() . '.' $file->getClientOriginalExtension();
-        $path = public_path() . '';
-        $file = move($path, $name);
-      */
+      $asesor = new advisor($request -> all());
+      //dd($asesor);
+
+      $file = $request->file('file');
+      $name = 'Asesor_' . time() . '.' . $file->getClientOriginalName();
+      $path = public_path() . '\images\asesores';
+      $file->move($path, $name);
+      //dd($name);
+
+      $image = new image();
+      $image->name = $name;
+      //$image->advisors()->associate($asesor);
+      $asesor->save();
+      //dd($asesor->id);
+      $image->advisor_id = $asesor->id;
+      $image->save();
+
+      return redirect()->route('login')->with('notification', $asesor->name .' '. $asesor->lastname1 . ' Se a Guardado satisfactoriamente!');
     }
 
     /**

@@ -6,7 +6,8 @@
     <!-- Default panel contents -->
     <div class="panel-heading"><center><h4>Registrar Asesor</h4></center></div>
     <div class="panel-body">
-      <form class="" action="index.html" method="post">
+      <form class="" action="{{route('Advisor.store')}}" role="form" method="POST" enctype="multipart/form-data">
+        {{ csrf_field() }}
         <div class="form-group">
           <label for="InputEmail1">Correo</label>
           <input type="email" name="email" class="form-control" placeholder="Correo" required>
@@ -25,11 +26,11 @@
         </div>
         <div class="form-group">
           <label for="InputNumber">Numero de Contacto</label>
-          <input type="text" name="Number" class="form-control" placeholder="Numero de Contacto"required>
+          <input type="text" name="telefono" class="form-control" placeholder="Numero de Contacto" maxlength="11" required>
         </div>
         <div class="form-group">
           <label for="exampleInputFile">Foto</label>
-          <input type="file" name="file" id="InputFile" required>
+          <input type="file" name="file" required>
           <p class="help-block">Subir la foto del asesor a registrar</p>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>

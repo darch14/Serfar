@@ -17,7 +17,7 @@ class CreateAdvisorsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('lastname1');
-            $table->string('lastname2');
+            $table->string('lastname2')->nullable();
             $table->string('email')->unique();
             $table->string('telefono');
             $table->timestamps();

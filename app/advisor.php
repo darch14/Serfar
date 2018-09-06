@@ -12,6 +12,6 @@ class advisor extends Model
 
     public function images()
     {
-        return $this->hasOne('Serfar\image');
+        return $this->hasMany('Serfar\image');
     }
 }

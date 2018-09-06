@@ -16,7 +16,14 @@ class AdvisorController extends Controller
      */
     public function index()
     {
-        return view('SerfarL.Authentication.AdvisorRegistration');
+        $advisor = advisor::orderBy('id', 'ASC')->paginate(5);
+        /*$advisor->each(function(){
+          $advisor->images;
+        });*/
+
+        return view('SerfarL.Authentication.Advisors.AdvisorList')
+              ->with('advisor', $advisor);
+
     }
 
     /**
@@ -26,7 +33,7 @@ class AdvisorController extends Controller
      */
     public function create()
     {
-        //
+        return view('SerfarL.Authentication.Advisors.AdvisorRegistration');
     }
 
     /**
@@ -54,7 +61,7 @@ class AdvisorController extends Controller
       $image->advisor_id = $asesor->id;
       $image->save();
 
-      return redirect()->route('login')->with('notification', $asesor->name .' '. $asesor->lastname1 . ' Se a Guardado satisfactoriamente!');
+      return redirect()->route('Advisor.index')->with('notification', $asesor->name .' '. $asesor->lastname1 . ' Se a Guardado satisfactoriamente!');
     }
 
     /**
@@ -76,7 +83,10 @@ class AdvisorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $advisor = advisor::orderBy('name', 'DESC')->lists('name', 'id');
+
+        return view('SerfarL.Authentication.Advisors.AdvisorEdit')
+            ->with($advisor);
     }
 
     /**

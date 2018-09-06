@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap-theme.css')}}">
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -47,8 +48,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Asesores <span class="caret"></span></a>
               <ul class="nav dropdown-menu">
-                <li> <a href="#">Listado de Asesores</a> </li>
-                <li> <a href="{{route('Advisor.index')}}">Registrar Asesor</a> </li>
+                <li> <a href="{{route('Advisor.index')}}">Listado de Asesores</a> </li>
+                <li> <a href="{{route('Advisor.create')}}">Registrar Asesor</a> </li>
               </ul>
             </li>
             <li class="dropdown">

@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="icon" href="{{asset('images/logos/favicon.png')}}" type="img/x-icon"/>
+    <link rel="shortcut icon" href="{{asset('images/logos/favicon.png')}}" type="img/x-icon"/>
     <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap-theme.css')}}">
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">

@@ -43,6 +43,7 @@ Route::resource('ContactL','ContactLController');
 
 Route::group(['middleware' => 'auth'], function() {
   Route::resource('Advisor','AdvisorController');
+  Route::get('Advisor/{id}/Destroy', 'AdvisorController@destroy')->name('AdvisorDestroy');
 });
 Auth::routes();
 

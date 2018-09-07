@@ -72,6 +72,7 @@ class AdvisorController extends Controller
      */
     public function show($id)
     {
+        dd('show');
         //
     }
 
@@ -83,10 +84,10 @@ class AdvisorController extends Controller
      */
     public function edit($id)
     {
-        $advisor = advisor::orderBy('name', 'DESC')->lists('name', 'id');
+        $advisor = advisor::find($id);
 
         return view('SerfarL.Authentication.Advisors.AdvisorEdit')
-            ->with($advisor);
+            ->with('advisor', $advisor);
     }
 
     /**
@@ -98,7 +99,12 @@ class AdvisorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $advisor = advisor::find($id);
+        //dd($advisor);
+        $advisor->fill($request->all());
+        $advisor->save();
+
+        return redirect()->route('Advisor.index')->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Actualizo satisfactoriamente!');
     }
 
     /**
@@ -109,6 +115,9 @@ class AdvisorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $advisor = advisor::find($id);
+        $advisor->delete();
+        //dd('destroy');
+        return redirect()->route('Advisor.index')->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Elimino satisfactoriamente!');
     }
 }

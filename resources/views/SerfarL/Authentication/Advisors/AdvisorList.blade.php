@@ -23,7 +23,7 @@
             <a href="{{ route('Advisor.edit', $advisor->id) }}" class="btn btn-warning">
               <span class="glyphicon glyphicon-pencil" ></span>
             </a>
-            <a href="" onclick="return confirm('¿Seguro que desea eliminarlo?')" class="btn btn-danger">
+            <a href="{{ route('AdvisorDestroy', $advisor->id) }}" onclick="return confirm('¿Seguro que desea eliminarlo?')" class="btn btn-danger">
               <span class="glyphicon glyphicon-trash" ></span>
             </a>
           </td>

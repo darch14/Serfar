@@ -17,9 +17,8 @@ class AdvisorController extends Controller
     public function index()
     {
         $advisor = advisor::orderBy('id', 'ASC')->paginate(5);
-        /*$advisor->each(function(){
-          $advisor->images;
-        });*/
+        $images = advisor::find(1)->images;
+        $advisor->images = $images;
 
         return view('SerfarL.Authentication.Advisors.AdvisorList')
               ->with('advisor', $advisor);

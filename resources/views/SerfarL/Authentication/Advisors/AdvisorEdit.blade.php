@@ -31,6 +31,7 @@
           <input type="text" name="telefono" class="form-control" placeholder="Numero de Contacto" maxlength="11" value="{{ $advisor->telefono }}" required>
         </div>
         <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a href="{{ route('Advisor.index') }}" class="btn btn-danger">Cancelar</a>
       </form>
     </div>
   </div>

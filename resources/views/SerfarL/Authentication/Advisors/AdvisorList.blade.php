@@ -18,7 +18,9 @@
           <td>{{ $advisor->name . ' ' . $advisor->lastname1 . ' ' . $advisor->lastname2 }}</td>
           <td>{{ $advisor->email }}</td>
           <td>{{ $advisor->telefono }}</td>
-          <td></td>
+          <td> 
+            <img src="{{ asset('images/asesores/'.$advisor->images->name) }}" class="img-rounded" width="80px" height="100px"> 
+          </td>
           <td>
             <a href="{{ route('Advisor.edit', $advisor->id) }}" class="btn btn-warning">
               <span class="glyphicon glyphicon-pencil" ></span>
@@ -27,7 +29,7 @@
               <span class="glyphicon glyphicon-trash" ></span>
             </a>
           </td>
-        </tr>
+        </tr>  
       @endforeach
     </tbody>
   </table>

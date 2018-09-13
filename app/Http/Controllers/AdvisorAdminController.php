@@ -7,7 +7,7 @@ use Serfar\advisor;
 use Serfar\image;
 use Illuminate\Support\Facades\Storage;
 
-class AdvisorController extends Controller
+class AdvisorAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class AdvisorController extends Controller
         $images = advisor::find(1)->images;
         $advisor->images = $images;
 
-        return view('SerfarL.Authentication.Advisors.AdvisorList')
+        return view('SerfarL.Authentication.Advisors.AdvisorAdminList')
               ->with('advisor', $advisor);
 
     }
@@ -32,7 +32,7 @@ class AdvisorController extends Controller
      */
     public function create()
     {
-        return view('SerfarL.Authentication.Advisors.AdvisorRegistration');
+        return view('SerfarL.Authentication.Advisors.AdvisorAdminRegistration');
     }
 
     /**
@@ -60,7 +60,7 @@ class AdvisorController extends Controller
       $image->advisor_id = $asesor->id;
       $image->save();
 
-      return redirect()->route('Advisor.index')->with('notification', $asesor->name .' '. $asesor->lastname1 . ' Se a Guardado satisfactoriamente!');
+      return redirect()->route('AdvisorAdmin.index')->with('notification', $asesor->name .' '. $asesor->lastname1 . ' Se a Guardado satisfactoriamente!');
     }
 
     /**
@@ -85,7 +85,7 @@ class AdvisorController extends Controller
     {
         $advisor = advisor::find($id);
 
-        return view('SerfarL.Authentication.Advisors.AdvisorEdit')
+        return view('SerfarL.Authentication.Advisors.AdvisorAdminEdit')
             ->with('advisor', $advisor);
     }
 
@@ -103,7 +103,7 @@ class AdvisorController extends Controller
         $advisor->fill($request->all());
         $advisor->save();
 
-        return redirect()->route('Advisor.index')->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Actualizo satisfactoriamente!');
+        return redirect()->route('AdvisorAdmin.index')->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Actualizo satisfactoriamente!');
     }
 
     /**
@@ -117,6 +117,6 @@ class AdvisorController extends Controller
         $advisor = advisor::find($id);
         $advisor->delete();
         //dd('destroy');
-        return redirect()->route('Advisor.index')->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Elimino satisfactoriamente!');
+        return redirect()->route('AdvisorAdmin.index')->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Elimino satisfactoriamente!');
     }
 }

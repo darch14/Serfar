@@ -50,16 +50,16 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Asesores <span class="caret"></span></a>
               <ul class="nav dropdown-menu">
-                <li> <a href="{{route('Advisor.index')}}">Listado de Asesores</a> </li>
-                <li> <a href="{{route('Advisor.create')}}">Registrar Asesor</a> </li>
+                <li> <a href="{{route('AdvisorAdmin.index')}}">Listado de Asesores</a> </li>
+                <li> <a href="{{route('AdvisorAdmin.create')}}">Registrar Asesor</a> </li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Laboratorios <span class="caret"></span></a>
               <ul class="nav dropdown-menu">
-                <li> <a href="#">Listado de Laboratorios</a> </li>
-                <li> <a href="#">Registrar laboratorio</a> </li>
+                <li> <a href="{{route('LaboratoryAdmin.index')}}">Listado de Laboratorios</a> </li>
+                <li> <a href="{{route('LaboratoryAdmin.create')}}">Registrar laboratorio</a> </li>
               </ul>
             </li>
             <li class="dropdown">

@@ -22,7 +22,7 @@
             <img src="{{ asset('images/asesores/'.$advisor->images->name) }}" class="img-rounded" width="80px" height="100px"> 
           </td>
           <td>
-            <a href="{{ route('Advisor.edit', $advisor->id) }}" class="btn btn-warning">
+            <a href="{{ route('AdvisorAdmin.edit', $advisor->id) }}" class="btn btn-warning">
               <span class="glyphicon glyphicon-pencil" ></span>
             </a>
             <a href="{{ route('AdvisorDestroy', $advisor->id) }}" onclick="return confirm('¿Seguro que desea eliminarlo?')" class="btn btn-danger">

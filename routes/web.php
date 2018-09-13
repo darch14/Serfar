@@ -42,8 +42,10 @@ Route::get('serfarltda/error', function(){
 Route::resource('ContactL','ContactLController');
 
 Route::group(['middleware' => 'auth'], function() {
-  Route::resource('Advisor','AdvisorController');
-  Route::get('Advisor/{id}/Destroy', 'AdvisorController@destroy')->name('AdvisorDestroy');
+  Route::resource('AdvisorAdmin','AdvisorAdminController');
+  Route::get('Advisor/{id}/Destroy', 'AdvisorAdminController@destroy')->name('AdvisorDestroy');
+
+  Route::resource('LaboratoryAdmin','LaboratoryAdminController');
 });
 Auth::routes();
 

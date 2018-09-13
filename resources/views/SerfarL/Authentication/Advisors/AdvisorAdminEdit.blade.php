@@ -7,7 +7,7 @@
     <div class="panel-heading"><center><h4>Editar Asesor</h4></center></div>
     <div class="panel-body">
 
-      <form class="" action="{{ route('Advisor.update', $advisor->id) }}" method="POST">
+      <form class="" action="{{ route('AdvisorAdmin.update', $advisor->id) }}" method="POST">
         {{ method_field('PUT') }}
         {{ csrf_field() }}
         <div class="form-group">
@@ -31,7 +31,7 @@
           <input type="text" name="telefono" class="form-control" placeholder="Numero de Contacto" maxlength="11" value="{{ $advisor->telefono }}" required>
         </div>
         <button type="submit" class="btn btn-primary">Actualizar</button>
-        <a href="{{ route('Advisor.index') }}" class="btn btn-danger">Cancelar</a>
+        <a href="{{ route('AdvisorAdmin.index') }}" class="btn btn-danger">Cancelar</a>
       </form>
     </div>
   </div>

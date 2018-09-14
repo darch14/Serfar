@@ -6,7 +6,7 @@
     <!-- Default panel contents -->
     <div class="panel-heading"><center><h4>Registrar Asesor</h4></center></div>
     <div class="panel-body">
-      <form class="" action="{{route('AdvisorAdmin.store')}}" role="form" method="POST" enctype="multipart/form-data">
+      <form class="" action="{{route('AdvisorAdmin.store')}}" role="form" method="POST" enctype="multipart/form-data" autocomplete="off">
         {{ csrf_field() }}
         <div class="form-group">
           <label for="InputEmail1">Correo</label>

@@ -7,7 +7,7 @@
     <div class="panel-heading"><center><h4>Editar Asesor</h4></center></div>
     <div class="panel-body">
 
-      <form class="" action="{{ route('AdvisorAdmin.update', $advisor->id) }}" method="POST">
+      <form class="" action="{{ route('AdvisorAdmin.update', $advisor->id) }}" method="POST" autocomplete="off">
         {{ method_field('PUT') }}
         {{ csrf_field() }}
         <div class="form-group">

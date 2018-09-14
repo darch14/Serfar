@@ -10,7 +10,7 @@ class laboratory extends Model
 
     protected $fillable = ['name', 'web'];
 
-    public function labimages()
+    public function lab_images()
     {
         return $this->hasOne('Serfar\labimage');
     }

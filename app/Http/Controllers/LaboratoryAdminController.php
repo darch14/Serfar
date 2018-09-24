@@ -78,7 +78,12 @@ class LaboratoryAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $laboratory = labimage::find(1)->laboratories;
+        // dd($laboratory);
+        // $laboratory = laboratory::find($id);
+
+        return view('SerfarL.Authentication.Laboratory.laboratoryAdminEdit')
+            ->with('laboratory', $laboratory);
     }
 
     /**

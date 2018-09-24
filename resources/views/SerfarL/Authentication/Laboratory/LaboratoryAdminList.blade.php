@@ -10,7 +10,7 @@
 	      <img src="{{ asset('images/labs/'.$images->name) }}" alt="..." class="img-rounded" width="200px" height="150px">
 	      <div class="caption">
 	        <p align="center">
-	        	<a href="#" class="btn btn-primary" role="button">Editar</a> 
+	        	<a href="{{ route('LaboratoryAdmin.edit', $images) }}" class="btn btn-primary" role="button">Editar</a> 
 	        	<a href="#" class="btn btn-danger" role="button">eliminar</a>
 	        </p>
 	      </div>

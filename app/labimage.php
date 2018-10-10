@@ -8,7 +8,7 @@ class labimage extends Model
 {
     protected $table = "labimages";
 
-    protected $fillable = ['name', 'laboratories_id'];
+    protected $fillable = ['name', 'laboratory_id'];
 
     public function laboratories()
     {

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Serfar\advisor;
 use Serfar\image;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class AdvisorAdminController extends Controller
 {
@@ -17,8 +18,10 @@ class AdvisorAdminController extends Controller
     public function index()
     {
         $advisor = advisor::orderBy('id', 'ASC')->paginate(5);
-        $images = advisor::find(1)->images;
-        $advisor->images = $images;
+        if (empty($advisor)) {
+          $images = advisor::find(1)->images;
+          $advisor->images = $images;
+        }
 
         return view('SerfarL.Authentication.Advisors.AdvisorAdminList')
               ->with('advisor', $advisor);
@@ -54,7 +57,7 @@ class AdvisorAdminController extends Controller
 
       $image = new image();
       $image->name = $name;
-      //$image->advisors()->associate($asesor);
+      //dd($asesor);
       $asesor->save();
       //dd($asesor->id);
       $image->advisor_id = $asesor->id;
@@ -99,9 +102,20 @@ class AdvisorAdminController extends Controller
     public function update(Request $request, $id)
     {
         $advisor = advisor::find($id);
+        $images = $advisor->images()->where('advisor_id', $advisor->id)->get();
         //dd($advisor);
-        $advisor->fill($request->all());
-        $advisor->save();
+
+        $advisor->update($request->all());
+
+        if (!empty($request->file)) {
+            $file = $request->file('file');
+            $name = 'Asesor_' . time() . '.' . $file->getClientOriginalName();
+            $path = public_path() . '\images\asesores';
+            $file->move($path, $name);
+            Storage::delete($images[0]->name);
+
+            $images[0]->update(['name' => $name]);
+        }
 
         return redirect()->route('AdvisorAdmin.index')->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Actualizo satisfactoriamente!');
     }

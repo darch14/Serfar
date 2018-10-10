@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Serfar\labimage;
 use Serfar\laboratory;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class LaboratoryAdminController extends Controller
 {
@@ -16,10 +17,14 @@ class LaboratoryAdminController extends Controller
      */
     public function index()
     {
-        $images = labimage::orderBy('id', 'ASC')->paginate(5);
+        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
+        if (empty($laboratory)) {
+            $images = laboratory::find(1)->lab_images;
+            $laboratory->lab_images = $images;
+        }
 
         return view('SerfarL.Authentication.Laboratory.laboratoryAdminList')
-              ->with('images', $images);
+              ->with('laboratory', $laboratory);
     }
 
     /**
@@ -53,7 +58,7 @@ class LaboratoryAdminController extends Controller
         $image->name = $name;
         $laboratory->save();
         // dd($image);
-        $image->laboratories_id = $laboratory->id;
+        $image->laboratory_id = $laboratory->id;
         $image->save();
 
         return redirect()->route('LaboratoryAdmin.index')->with('notification', $laboratory->name . ' ' . ' Se a Guardado satisfactoriamente!');
@@ -67,7 +72,7 @@ class LaboratoryAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        dd('show');
     }
 
     /**
@@ -78,7 +83,7 @@ class LaboratoryAdminController extends Controller
      */
     public function edit($id)
     {
-        $laboratory = labimage::find(1)->laboratories;
+        $laboratory = laboratory::find($id);
         // dd($laboratory);
         // $laboratory = laboratory::find($id);
 
@@ -95,7 +100,22 @@ class LaboratoryAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $laboratory = laboratory::find($id);
+      $lab_image = $laboratory->lab_images()->where('laboratory_id', $laboratory->id)->get();
+      
+      $laboratory->update($request->all());
+
+      if (!empty($request->file)) {
+        $file = $request->file('file');
+        $name = 'Laboratory_' . time() . '.' . $file->getClientOriginalName();
+        $path = public_path() . '\images\Labs';
+        $file->move($path, $name);
+        Storage::delete($lab_image[0]->name); 
+
+        $lab_image[0]->update(['name' => $name]);
+      }
+
+      return redirect()->route('LaboratoryAdmin.index')->with('notification', $laboratory->name .' '. ' Se a Actualizo satisfactoriamente!');
     }
 
     /**
@@ -106,6 +126,12 @@ class LaboratoryAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $laboratory = laboratory::find($id);
+        $lab_image = $laboratory->lab_images()->where('laboratory_id', $id)->get();
+        /*$file = public_path() . '\images\Labs\\' . $lab_image[0]->name;
+        File::Delete('/images/Labs/' . $lab_image[0]->name);*/
+        $laboratory->delete();
+        //dd('destroy');
+        return redirect()->route('LaboratoryAdmin.index')->with('notification', $laboratory->name . ' ' . ' Se a Elimino satisfactoriamente!');
     }
 }

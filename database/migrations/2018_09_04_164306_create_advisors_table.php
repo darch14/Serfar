@@ -18,8 +18,9 @@ class CreateAdvisorsTable extends Migration
             $table->string('name');
             $table->string('lastname1');
             $table->string('lastname2')->nullable();
+            $table->string('position');
             $table->string('email')->unique();
-            $table->string('telefono');
+            $table->string('number');
             $table->timestamps();
         });
     }

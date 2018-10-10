@@ -6,6 +6,7 @@
     <thead>
       <th style="text-align: center;">ID</th>
       <th style="text-align: center;">Nombre</th>
+      <th style="text-align: center;">Cargo</th>
       <th style="text-align: center;">Correo</th>
       <th style="text-align: center;">Telefono</th>
       <th style="text-align: center;">Imagen</th>
@@ -16,8 +17,9 @@
         <tr>
           <td>{{ $advisor->id }}</td>
           <td>{{ $advisor->name . ' ' . $advisor->lastname1 . ' ' . $advisor->lastname2 }}</td>
+          <td>{{ $advisor->position }}</td>
           <td>{{ $advisor->email }}</td>
-          <td>{{ $advisor->telefono }}</td>
+          <td>{{ $advisor->number }}</td>
           <td> 
             <img src="{{ asset('images/asesores/'.$advisor->images->name) }}" class="img-rounded" width="80px" height="100px"> 
           </td>

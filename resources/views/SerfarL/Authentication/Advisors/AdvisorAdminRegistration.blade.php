@@ -25,8 +25,12 @@
           <input type="text" name="lastname2" class="form-control" placeholder="Segundo Apellido">
         </div>
         <div class="form-group">
+          <label for="InputPosition">Cargo</label>
+          <input type="text" name="position" class="form-control" placeholder="Cargo" required>
+        </div>
+        <div class="form-group">
           <label for="InputNumber">Numero de Contacto</label>
-          <input type="text" name="telefono" class="form-control" placeholder="Numero de Contacto" maxlength="11" required>
+          <input type="text" name="number" class="form-control" placeholder="Numero de Contacto" maxlength="11" required>
         </div>
         <div class="form-group">
           <label for="exampleInputFile">Foto</label>

@@ -8,7 +8,7 @@ class advisor extends Model
 {
     protected $table = "advisors";
 
-    protected $fillable = ['name', 'lastname1', 'lastname2', 'email', 'telefono'];
+    protected $fillable = ['name', 'lastname1', 'lastname2', 'position', 'email', 'number'];
 
     public function images()
     {

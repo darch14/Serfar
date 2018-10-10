@@ -7,7 +7,7 @@
     <div class="panel-heading"><center><h4>Editar Asesor</h4></center></div>
     <div class="panel-body">
 
-      <form class="" action="{{ route('AdvisorAdmin.update', $advisor->id) }}" method="POST" autocomplete="off">
+      <form class="" action="{{ route('AdvisorAdmin.update', $advisor->id) }}" method="POST" enctype="multipart/form-data" autocomplete="off">
         {{ method_field('PUT') }}
         {{ csrf_field() }}
         <div class="form-group">
@@ -27,8 +27,17 @@
           <input type="text" name="lastname2" class="form-control" placeholder="Segundo Apellido" value="{{ $advisor->lastname2 }}">
         </div>
         <div class="form-group">
+          <label for="InputPosition">Cargo</label>
+          <input type="text" name="position" class="form-control" placeholder="Cargo" value="{{ $advisor->position }}" required>
+        </div>
+        <div class="form-group">
           <label for="InputNumber">Numero de Contacto</label>
-          <input type="text" name="telefono" class="form-control" placeholder="Numero de Contacto" maxlength="11" value="{{ $advisor->telefono }}" required>
+          <input type="text" name="number" class="form-control" placeholder="Numero de Contacto" maxlength="11" value="{{ $advisor->number }}" required>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputFile">Foto</label>
+          <input type="file" name="file">
+          <p class="help-block">Subir la foto del asesor a registrar</p>
         </div>
         <button type="submit" class="btn btn-primary">Actualizar</button>
         <a href="{{ route('AdvisorAdmin.index') }}" class="btn btn-danger">Cancelar</a>

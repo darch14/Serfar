@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('Advisor/{id}/Destroy', 'AdvisorAdminController@destroy')->name('AdvisorDestroy');
 
   Route::resource('LaboratoryAdmin','LaboratoryAdminController');
+  Route::get('Laboratory/{id}/Destroy', 'LaboratoryAdminController@destroy')->name('LaboratoryDestroy');
 });
 Auth::routes();
 

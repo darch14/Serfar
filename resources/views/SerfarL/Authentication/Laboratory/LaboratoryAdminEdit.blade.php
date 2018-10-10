@@ -20,7 +20,7 @@
 		    <div class="form-group">
 		      	<label for="exampleInputFile">Foto</label>
 		      	<input type="file" name="file">
-		      	<p class="help-block">Subir la foto del asesor a registrar</p>
+		      	<p class="help-block">Subir la foto del laboratorio a registrar</p>
 		    </div>
 		    <button type="submit" class="btn btn-primary">Editar</button>
 	  	</form>

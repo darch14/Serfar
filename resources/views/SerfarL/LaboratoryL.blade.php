@@ -15,19 +15,17 @@
     </div>
 
     <div class="row post center">
-      @for ($i = 1; $i <= 67; $i++)
-
+      @foreach($laboratory as $laboratory)
         <div class="span3 center">
           <figure class="link-img">
             <div class="img-rounded img-border">
               <div class="img-block">
-                <img src="{{asset('images/labs/'.$i.'.jpg')}}" alt="">
+                <img src="{{ asset('images/labs/'.$laboratory->lab_images->name) }}" alt="">
               </div>
             </div>
           </figure>
         </div>
-
-      @endfor
+      @endforeach
     </div>
 
   </div>

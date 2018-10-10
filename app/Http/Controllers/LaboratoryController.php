@@ -3,6 +3,8 @@
 namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Serfar\labimage;
+use Serfar\laboratory;
 
 class LaboratoryController extends Controller
 {
@@ -13,7 +15,14 @@ class LaboratoryController extends Controller
      */
     public function index()
     {
-        return view('SerfarL.LaboratoryL');
+        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
+        if (empty($laboratory)) {
+            $images = laboratory::find(1)->lab_images;
+            $laboratory->lab_images = $images;
+        }
+
+        return view('SerfarL.LaboratoryL')
+              ->with('laboratory', $laboratory);
     }
 
     /**

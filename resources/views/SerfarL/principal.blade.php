@@ -41,7 +41,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{route('Swelcome')}}">
+                <a class="navbar-brand" {{-- href="{{route('Swelcome')}}" --}}>
                   <img src="{{asset('images/logos/favicon.png')}}">
                 </a>
               </div>
@@ -56,6 +56,7 @@
                     </ul>
                   </li>
                   <li id="li-lab"><a href="{{route('Laboraty')}}">Laboratorios</a></li>
+                  <li id="li-lab"><a href="{{route('HumanL')}}">Equipo humano</a></li>
                   <li id="li-qui"><a href="{{route('Aboutus')}}">Quienes somos</a></li>
                   <li id="li-con"><a href="{{route('ContactL')}}">Contacto</a></li>
                 </ul>

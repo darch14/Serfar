@@ -15,14 +15,18 @@
     return view('welcome');
 });*/
 Route::get('/', [
-    'as' => 'Swelcome', 'uses' => 'welcomeController@index'
+    'as' => 'routeHome', 'uses' => 'HomeLController@index'
+    //'as' => 'Swelcome', 'uses' => 'welcomeController@index'
     //return view('Swelcome');
 ]);
-Route::get('serfarltda/', [
+/*Route::get('serfarltda/', [
     'as' => 'routeHome', 'uses' => 'HomeLController@index'
-]);
+]);*/
 Route::get('serfarltda/Laboraty', [
     'as' => 'Laboraty', 'uses' => 'LaboratoryController@index'
+]);
+Route::get('serfarltda/HumanL', [
+    'as' => 'HumanL', 'uses' => 'HumanController@index'
 ]);
 Route::get('serfarltda/About', [
     'as' => 'Aboutus', 'uses' => 'AboutusController@index'

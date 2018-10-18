@@ -48,10 +48,10 @@
             <li class="active"><a href="{{route('home')}}">Home <span class="sr-only">(current)</span></a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Asesores <span class="caret"></span></a>
+                Equipo Humano <span class="caret"></span></a>
               <ul class="nav dropdown-menu">
-                <li> <a href="{{route('AdvisorAdmin.index')}}">Listado de Asesores</a> </li>
-                <li> <a href="{{route('AdvisorAdmin.create')}}">Registrar Asesor</a> </li>
+                <li> <a href="{{route('AdvisorAdmin.index')}}">Listado de Equipo Humano</a> </li>
+                <li> <a href="{{route('AdvisorAdmin.create')}}">Registrar Equipo Humano</a> </li>
               </ul>
             </li>
             <li class="dropdown">

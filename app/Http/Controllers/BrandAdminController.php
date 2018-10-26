@@ -5,7 +5,7 @@ namespace Serfar\Http\Controllers;
 use Illuminate\Http\Request;
 use Serfar\laboratory;
 
-class HomeLController extends Controller
+class BrandAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,7 @@ class HomeLController extends Controller
      */
     public function index()
     {
-        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
-        if (empty($laboratory)) {
-            $images = laboratory::find(1)->lab_images;
-            $laboratory->lab_images = $images;
-        }
-        return view('SerfarL.HomeL')
-            ->with('laboratory', $laboratory);
+        dd('index');
     }
 
     /**
@@ -30,7 +24,15 @@ class HomeLController extends Controller
      */
     public function create()
     {
-        //
+        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
+        if (empty($laboratory)) {
+            $images = laboratory::find(1)->lab_images;
+            $laboratory->lab_images = $images;
+        }
+        // dd($laboratory->render());
+        return view('SerfarL.Authentication.Brands.BrandAdminRegistration')
+            ->with('laboratory', $laboratory)
+            ->with('render', $laboratory->render());
     }
 
     /**

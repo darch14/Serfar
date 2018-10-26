@@ -42,22 +42,9 @@
       <hr class="featurette-divider">
       <h2>Laboratorios</h2>
       <div id="owl-demo">
-        <div class="item"><img src="{{asset('images/labs/1.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/2.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/3.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/4.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/5.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/6.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/7.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/8.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/9.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/10.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/11.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/12.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/13.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/14.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/15.jpg')}}" alt=""></div>
-        <div class="item"><img src="{{asset('images/labs/16.jpg')}}" alt=""></div>
+        @foreach($laboratory as $laboratory)
+        <div class="item"><img src="{{asset('images/labs/'.$laboratory->lab_images->name)}}" alt=""></div>
+        @endforeach
       </div>
 
       <hr class="featurette-divider">

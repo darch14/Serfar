@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap-theme.css')}}">
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
+    @yield('link')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -64,10 +65,18 @@
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Marcas <span class="caret"></span></a>
+              <ul class="nav dropdown-menu">
+                <li> <a href="{{route('BrandAdmin.index')}}">Listado de Marcas</a> </li>
+                <li> <a href="{{route('BrandAdmin.create')}}">Registrar Marca</a> </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Catalogo <span class="caret"></span></a>
               <ul class="nav dropdown-menu">
                 <li> <a href="#">Listado de Catalogos</a> </li>
-                <li> <a href="#">Registrar</a> </li>
+                <li> <a href="#">Registrar Producto</a> </li>
               </ul>
             </li>
           </ul>
@@ -81,5 +90,6 @@
 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="{{asset('js/bootstrap/bootstrap.js')}}"></script>
+    @yield('script')
   </body>
 </html>

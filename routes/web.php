@@ -52,6 +52,8 @@ Route::group(['middleware' => 'auth'], function() {
   Route::resource('LaboratoryAdmin','LaboratoryAdminController');
   Route::get('Laboratory/{id}/Destroy', 'LaboratoryAdminController@destroy')->name('LaboratoryDestroy');
 
+  Route::resource('BrandAdmin','BrandAdminController');
+
   Route::get('serfarltda/Authentication', 'HomeController@index')->name('home');
 });
 Auth::routes();

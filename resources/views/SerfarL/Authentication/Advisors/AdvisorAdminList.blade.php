@@ -2,6 +2,9 @@
 
 @section('content')
   <br><br>
+  <div class="panel panel-default"">
+    <div class="panel-heading"><center><h4>Listado de Personal</h4></center></div>
+  </div>
   <table class="table table-striped" style="text-align: center;">
     <thead>
       <th style="text-align: center;">ID</th>

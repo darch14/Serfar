@@ -14,4 +14,9 @@ class laboratory extends Model
     {
         return $this->hasOne('Serfar\labimage');
     }
+
+    public function brands()
+    {
+        return $this->hasMany('Serfar\labimage');
+    }
 }

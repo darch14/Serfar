@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('Laboratory/{id}/Destroy', 'LaboratoryAdminController@destroy')->name('LaboratoryDestroy');
 
   Route::resource('BrandAdmin','BrandAdminController');
+  Route::get('Brand/{id}/Destroy', 'BrandAdminController@destroy')->name('BrandDestroy');
 
   Route::get('serfarltda/Authentication', 'HomeController@index')->name('home');
 });

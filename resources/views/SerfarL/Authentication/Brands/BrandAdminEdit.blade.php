@@ -3,13 +3,14 @@
 @section('content')
 	<br><br>
 	<div class="panel panel-default">
-		<div class="panel-heading"><center><h4>Registrar Marca</h4></center></div>
+		<div class="panel-heading"><center><h4>Editar Marca</h4></center></div>
 		<div class="panel-body">
-			<form class="" action="{{route('BrandAdmin.store')}}" role="form" method="POST" enctype="multipart/form-data" autocomplete="off">
+			<form class="" action="{{route('BrandAdmin.update', $brand->id)}}" role="form" method="POST" enctype="multipart/form-data" autocomplete="off">
+				{{ method_field('PUT') }}
 				{{ csrf_field() }}
 				<div class="form-group">
 					<label for="namelabel">Nombre</label>
-          			<input type="name" name="name" class="form-control" placeholder="Nombre" required>
+          			<input type="name" name="name" class="form-control" placeholder="Nombre" value="{{ $brand->name }}" required>
 				</div>
 				<div class="form-group">
 					<label for="laboratorylabel">Laboratorio</label>
@@ -28,7 +29,11 @@
 							        <tr>
 							            <td>
 							            	<span class="input-group-addon">
-										    	<input type="radio" name="laboratory_id" value="{{ $laboratory->id }}" aria-label="" required>
+							            		@if($laboratory->id == $brand->laboratory_id)
+										    		<input type="radio" name="laboratory_id" value="{{ $laboratory->id }}" checked required>
+										    	@else
+										    		<input type="radio" name="laboratory_id" value="{{ $laboratory->id }}" required>
+										    	@endif
 										    </span>
 							            </td>
 							            <td>{{ $laboratory->name }}</td>
@@ -40,7 +45,7 @@
 						{!! $render !!}
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Guardar</button>
+				<button type="submit" class="btn btn-primary">Actualizar</button>
 				<a href="{{ route('BrandAdmin.index') }}" class="btn btn-danger">Cancelar</a>
 			</form>
 		</div>

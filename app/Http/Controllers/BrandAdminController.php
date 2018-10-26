@@ -4,6 +4,7 @@ namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Serfar\laboratory;
+use Serfar\brand;
 
 class BrandAdminController extends Controller
 {
@@ -14,7 +15,18 @@ class BrandAdminController extends Controller
      */
     public function index()
     {
-        dd('index');
+        $brand = brand::orderBy('id', 'ASC')->paginate(8);
+        if (empty($brand)) {
+            $laboratory = brand::find(1)->laboratory;
+            $brand->laboratory = $laboratory;
+            if (empty($laboratory)) {
+                $images = laboratory::find(1)->lab_images;
+                $brand->laboratory->lab_images = $images;    
+            }
+        }
+        // dd('index');
+        return view('SerfarL.Authentication.brands.BrandAdminList')
+              ->with('brand', $brand);
     }
 
     /**
@@ -43,7 +55,13 @@ class BrandAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $brand = new brand($request->all());
+
+        $brand->save();
+
+        return redirect()->route('BrandAdmin.index')
+            ->with('notification', $brand->name . ' '. 'se a guardado satisfactoriamente!');
+
     }
 
     /**
@@ -65,7 +83,19 @@ class BrandAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = brand::find($id);
+        // dd($laboratory);
+        // $laboratory = laboratory::find($id);
+        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
+        if (empty($laboratory)) {
+            $images = laboratory::find(1)->lab_images;
+            $laboratory->lab_images = $images;
+        }
+
+        return view('SerfarL.Authentication.Brands.BrandAdminEdit')
+            ->with('brand', $brand)
+            ->with('laboratory', $laboratory)
+            ->with('render', $laboratory->render());
     }
 
     /**
@@ -77,7 +107,11 @@ class BrandAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brand = brand::find($id);
+
+        $brand->update($request->all());
+
+        return redirect()->route('BrandAdmin.index')->with('notification', $brand->name .' '. ' Se a Actualizo satisfactoriamente!');
     }
 
     /**
@@ -88,6 +122,10 @@ class BrandAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = brand::find($id);
+
+        $brand->delete();
+        
+        return redirect()->route('BrandAdmin.index')->with('notification', $brand->name . ' ' . ' Se a Elimino satisfactoriamente!');
     }
 }

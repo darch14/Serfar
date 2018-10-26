@@ -23,6 +23,7 @@
 		      	<p class="help-block">Subir la foto del laboratorio a registrar</p>
 		    </div>
 		    <button type="submit" class="btn btn-primary">Editar</button>
+		    <a href="{{ route('LaboratoryAdmin.index') }}" class="btn btn-danger">Cancelar</a>
 	  	</form>
 	</div>
 </div>

@@ -55,6 +55,9 @@ Route::group(['middleware' => 'auth'], function() {
   Route::resource('BrandAdmin','BrandAdminController');
   Route::get('Brand/{id}/Destroy', 'BrandAdminController@destroy')->name('BrandDestroy');
 
+  Route::resource('ProductAdmin','ProductAdminController');
+  Route::get('Product/{id}/Destroy', 'ProductAdminController@destroy')->name('ProductDestroy');
+
   Route::get('serfarltda/Authentication', 'HomeController@index')->name('home');
 });
 Auth::routes();

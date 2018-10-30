@@ -75,8 +75,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Catalogo <span class="caret"></span></a>
               <ul class="nav dropdown-menu">
-                <li> <a href="#">Listado de Catalogos</a> </li>
-                <li> <a href="#">Registrar Producto</a> </li>
+                <li> <a href="{{route('ProductAdmin.index')}}">Listado de Catalogos</a> </li>
+                <li> <a href="{{route('ProductAdmin.create')}}">Registrar Producto</a> </li>
               </ul>
             </li>
           </ul>

@@ -56,6 +56,11 @@
 						{!! $render !!}
 					</div>
 				</div>
+				<div class="form-group">
+			      	<label for="exampleInputFile">Foto</label>
+			      	<input type="file" name="file" required>
+			      	<p class="help-block">Subir la foto del productos a registrar</p>
+			    </div>
 				<button type="submit" class="btn btn-primary">Guardar</button>
 				<a href="{{ route('ProductAdmin.index') }}" class="btn btn-danger">Cancelar</a>
 			</form>

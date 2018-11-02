@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Serfar\brand;
 use Serfar\laboratory;
 use Serfar\product;
+use Serfar\proimage;
 
 class ProductAdminController extends Controller
 {
@@ -16,7 +17,15 @@ class ProductAdminController extends Controller
      */
     public function index()
     {
-        //
+        $product = product::orderBy('id', 'ASC')->paginate(8);
+        
+        // $image = product::find(2)->pro_images;
+        // $product->pro_image = $image;
+
+        dd($product->proimage->name);
+
+        return view('SerfarL.Authentication.Products.ProductAdminList')
+              ->with('product', $product);
     }
 
     /**
@@ -50,7 +59,23 @@ class ProductAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new product($request->all());
+
+        $file = $request->file('file');
+        $name = 'product_' . time() . '.' . $file->getClientOriginalName();
+        $path = public_path() . '\images\prod';
+        $file->move($path, $name);
+        // dd($name);
+
+        $image = new proimage();
+        $image->name = $name;
+        $product->save();
+        // dd($image);
+        $image->product_id = $product->id;
+        $image->save();
+
+        return redirect()->route('ProductAdmin.index')
+            ->with('notification', $product->name . ' '. 'se a guardado satisfactoriamente!');
     }
 
     /**

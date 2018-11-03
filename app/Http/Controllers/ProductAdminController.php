@@ -85,7 +85,15 @@ class ProductAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = product::find($id);
+        // dd('edit');
+
+        $brand = brand::orderBy('id','ABC')->paginate(8);
+
+        return view('SerfarL.Authentication.Products.ProductAdminEdit')
+            ->with('product', $product)
+            ->with('brand', $brand)
+            ->with('render', $brand->render());
     }
 
     /**
@@ -97,7 +105,21 @@ class ProductAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = product::find($id);
+        // dd($request->all());
+        $pro_image = $product->pro_image()->where('product_id', $product->id)->get();      
+        $product->update($request->all());
+
+        if (!empty($request->file)) {
+            $file = $request->file('file');
+            $name = 'product_' . time() . '.' . $file->getClientOriginalName();
+            $path = public_path() . '\images\prod';
+            $file->move($path, $name);
+            Storage::delete($pro_image[0]->name); 
+            $pro_image[0]->update(['name' => $name]);
+        }
+
+        return redirect()->route('ProductAdmin.index')->with('notification', $product->name .' '. ' Se a Actualizo satisfactoriamente!');
     }
 
     /**
@@ -108,6 +130,14 @@ class ProductAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd('destroy');
+
+        $product = product::find($id);
+        // $lab_image = $laboratory->lab_images()->where('laboratory_id', $id)->get();
+        /*$file = public_path() . '\images\Labs\\' . $lab_image[0]->name;
+        File::Delete('/images/Labs/' . $lab_image[0]->name);*/
+        $product->delete();
+        //dd('destroy');
+        return redirect()->route('ProductAdmin.index')->with('notification', $product->name . ' ' . ' Se a Elimino satisfactoriamente!');
     }
 }

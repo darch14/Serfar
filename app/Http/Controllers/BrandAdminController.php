@@ -16,14 +16,7 @@ class BrandAdminController extends Controller
     public function index()
     {
         $brand = brand::orderBy('id', 'ASC')->paginate(8);
-        if (empty($brand)) {
-            $laboratory = brand::find(1)->laboratory;
-            $brand->laboratory = $laboratory;
-            if (empty($laboratory)) {
-                $images = laboratory::find(1)->lab_images;
-                $brand->laboratory->lab_images = $images;    
-            }
-        }
+        
         // dd('index');
         return view('SerfarL.Authentication.brands.BrandAdminList')
               ->with('brand', $brand);
@@ -37,10 +30,7 @@ class BrandAdminController extends Controller
     public function create()
     {
         $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
-        if (empty($laboratory)) {
-            $images = laboratory::find(1)->lab_images;
-            $laboratory->lab_images = $images;
-        }
+        
         // dd($laboratory->render());
         return view('SerfarL.Authentication.Brands.BrandAdminRegistration')
             ->with('laboratory', $laboratory)
@@ -87,10 +77,7 @@ class BrandAdminController extends Controller
         // dd($laboratory);
         // $laboratory = laboratory::find($id);
         $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
-        if (empty($laboratory)) {
-            $images = laboratory::find(1)->lab_images;
-            $laboratory->lab_images = $images;
-        }
+        
 
         return view('SerfarL.Authentication.Brands.BrandAdminEdit')
             ->with('brand', $brand)

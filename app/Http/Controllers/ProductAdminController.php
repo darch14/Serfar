@@ -19,10 +19,7 @@ class ProductAdminController extends Controller
     {
         $product = product::orderBy('id', 'ASC')->paginate(8);
         
-        // $image = product::find(2)->pro_images;
         // $product->pro_image = $image;
-
-        dd($product->proimage->name);
 
         return view('SerfarL.Authentication.Products.ProductAdminList')
               ->with('product', $product);
@@ -36,16 +33,7 @@ class ProductAdminController extends Controller
     public function create()
     {
         $brand = brand::orderBy('id', 'ASC')->paginate(8);
-        if (empty($brand)) {
-            $laboratory = brand::find(1)->laboratory;
-            $brand->laboratory = $laboratory;
-            if (empty($laboratory)) {
-                $images = laboratory::find(1)->lab_images;
-                $brand->laboratory->lab_images = $images;    
-            }
-        }
-
-
+        
         return view('SerfarL.Authentication.Products.ProductAdminRegistration')
                 ->with('brand', $brand)
                 ->with('render', $brand->render());

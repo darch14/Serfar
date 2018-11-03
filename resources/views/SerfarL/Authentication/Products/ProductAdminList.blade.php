@@ -24,7 +24,7 @@
 			        <td>{{ $product->brand->name }}</td>
 			        <td>{{ $product->brand->laboratory->name }}</td>
 			        <td> 
-		            	<img src="{{ asset('images/labs/'.$product->pro_image->name ) }}" class="img-rounded" width="80px"> 
+		            	<img src="{{ asset('images/prod/'. $product->pro_image->name ) }}" class="img-rounded" width="80px"> 
 		          	</td>
 		          	<td>
 			            <a href="{{ route('ProductAdmin.edit', $product->id) }}" class="btn btn-warning">

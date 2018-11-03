@@ -10,7 +10,7 @@ class product extends Model
 
     protected $fillable = ['name', 'description', 'category', 'unit', 'brand_id'];
 
-    public function pro_images()
+    public function pro_image()
     {
         return $this->hasOne('Serfar\proimage');
     }

@@ -18,10 +18,6 @@ class LaboratoryAdminController extends Controller
     public function index()
     {
         $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
-        if (empty($laboratory)) {
-            $images = laboratory::find(1)->lab_images;
-            $laboratory->lab_images = $images;
-        }
 
         return view('SerfarL.Authentication.Laboratory.laboratoryAdminList')
               ->with('laboratory', $laboratory);

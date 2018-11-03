@@ -43,7 +43,7 @@
       <h2>Laboratorios</h2>
       <div id="owl-demo">
         @foreach($laboratory as $laboratory)
-        <div class="item"><img src="{{asset('images/labs/'.$laboratory->lab_images->name)}}" alt=""></div>
+          <div class="item"><img src="{{asset('images/labs/'.$laboratory->lab_images->name)}}" alt=""></div>
         @endforeach
       </div>
 
@@ -51,12 +51,9 @@
 
       <h2>Productos</h2>
       <div id="owl-productos">
-        <div class="item"><img src="{{asset('images/prod/losartan.png')}}" alt="Losartan"></div>
-        <div class="item"><img src="{{asset('images/prod/guantes_examen_latex.jpg')}}" alt="Guantes Examen Latex"></div>
-        <div class="item"><img src="{{asset('images/prod/acetaminofen.jpg')}}" alt="acetaminofen"></div>
-        <div class="item"><img src="{{asset('images/prod/glibenclamina.png')}}" alt="glibenclamina"></div>
-        <div class="item"><img src="{{asset('images/prod/Acido.png')}}" alt="ácido acetilsalicílico"></div>
-        <div class="item"><img src="{{asset('images/prod/sulfato-ferroso.png')}}" alt="sulfato ferroso"></div>
+        @foreach($product as $product)
+          <div class="item"><img src="{{asset('images/prod/'.$product->pro_image->name)}}" alt="Losartan"></div>
+        @endforeach
       </div>
 
       <!-- /END THE FEATURETTES -->

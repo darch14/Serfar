@@ -4,6 +4,7 @@ namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Serfar\laboratory;
+use Serfar\product;
 
 class HomeLController extends Controller
 {
@@ -15,12 +16,11 @@ class HomeLController extends Controller
     public function index()
     {
         $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
-        if (empty($laboratory)) {
-            $images = laboratory::find(1)->lab_images;
-            $laboratory->lab_images = $images;
-        }
+        $product = product::orderBy('id', 'ASC')->paginate(5);
+
         return view('SerfarL.HomeL')
-            ->with('laboratory', $laboratory);
+            ->with('laboratory', $laboratory)
+            ->with('product', $product);
     }
 
     /**

@@ -48,13 +48,7 @@
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" id="lista_navbar">
                   <li id="li-ini"><a href="{{route('routeHome')}}">Inicio</a></li>
-                  <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="">Portafolio <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li id="li-med"><a href="{{route('Medicament')}}">Medicamentos</a></li>
-                      <li id="li-dis"><a href="">Dispositios Medicos</a></li>
-                    </ul>
-                  </li>
+                  <li id="li-med"><a href="{{route('Portfolio')}}">Portafolio</a></li>
                   <li id="li-lab"><a href="{{route('Laboraty')}}">Laboratorios</a></li>
                   <li id="li-lab"><a href="{{route('HumanL')}}">Equipo humano</a></li>
                   <li id="li-qui"><a href="{{route('Aboutus')}}">Quienes somos</a></li>

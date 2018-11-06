@@ -41,10 +41,6 @@ Route::get('serfarltda/error', function(){
   return view('fragment.error');
 });
 
-// Route::get('descargas', function(){
-//   return Excel::download(new ProductsExport, 'products.xlsx');
-// });
-
 //Route::resource('serfar','welcomeController');
 //Route::resource('serfarltda','HomeLController');
 //Route::resource('Laboraty','LaboratoryController');
@@ -67,6 +63,7 @@ Route::group(['middleware' => 'auth'], function() {
 
   // ------------------------------ Exports ----------------------------------------
   Route::resource('ProductExport','ProductExportController');
+  Route::resource('ImportOption','ImportController');
   // -------------------------------------------------------------------------------
 });
 Auth::routes();

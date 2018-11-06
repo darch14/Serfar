@@ -23,8 +23,11 @@
           <td>{{ $advisor->position }}</td>
           <td>{{ $advisor->email }}</td>
           <td>{{ $advisor->number }}</td>
-          <td> 
-            <img src="{{ asset('images/asesores/'.$advisor->images->name) }}" class="img-rounded" width="80px" height="100px"> 
+          <td>
+          @empty(!$advisor->images)
+            <img src="{{ asset('images/asesores/'.$advisor->images->name) }}" class="img-rounded" width="80px" height="100px">
+          @endempty
+
           </td>
           <td>
             <a href="{{ route('AdvisorAdmin.edit', $advisor->id) }}" class="btn btn-warning">
@@ -34,7 +37,7 @@
               <span class="glyphicon glyphicon-trash" ></span>
             </a>
           </td>
-        </tr>  
+        </tr>
       @endforeach
     </tbody>
   </table>

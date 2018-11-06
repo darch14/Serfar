@@ -79,6 +79,14 @@
                 <li> <a href="{{route('ProductAdmin.create')}}">Registrar Producto</a> </li>
               </ul>
             </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Excel <span class="caret"></span></a>
+              <ul class="nav dropdown-menu">
+                <li> <a href="{{route('ProductExport.index')}}">Exportar</a> </li>
+                <li> <a href="">Importar</a> </li>
+              </ul>
+            </li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

@@ -40,6 +40,11 @@ Route::get('serfarltda/Portfolio', [
 Route::get('serfarltda/error', function(){
   return view('fragment.error');
 });
+
+// Route::get('descargas', function(){
+//   return Excel::download(new ProductsExport, 'products.xlsx');
+// });
+
 //Route::resource('serfar','welcomeController');
 //Route::resource('serfarltda','HomeLController');
 //Route::resource('Laboraty','LaboratoryController');
@@ -59,5 +64,9 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('Product/{id}/Destroy', 'ProductAdminController@destroy')->name('ProductDestroy');
 
   Route::get('serfarltda/Authentication', 'HomeController@index')->name('home');
+
+  // ------------------------------ Exports ----------------------------------------
+  Route::resource('ProductExport','ProductExportController');
+  // -------------------------------------------------------------------------------
 });
 Auth::routes();

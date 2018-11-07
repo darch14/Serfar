@@ -18,7 +18,7 @@ class AdvisorAdminController extends Controller
     public function index()
     {
         $advisor = advisor::orderBy('id', 'ASC')->paginate(5);
-        
+
         return view('SerfarL.Authentication.Advisors.AdvisorAdminList')
               ->with('advisor', $advisor);
 
@@ -108,12 +108,20 @@ class AdvisorAdminController extends Controller
             $name = 'Asesor_' . time() . '.' . $file->getClientOriginalName();
             $path = public_path() . '\images\asesores';
             $file->move($path, $name);
-            Storage::delete($images[0]->name);
 
-            $images[0]->update(['name' => $name]);
+            if (!empty($images[0])) {
+              Storage::delete($images[0]->name);
+              $images[0]->update(['name' => $name]);
+            }else{
+              $images = new image();
+              $images->name = $name;
+              $images->advisor_id = $advisor->id;
+              $images->save();
+            }
         }
 
-        return redirect()->route('AdvisorAdmin.index')->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Actualizo satisfactoriamente!');
+        return redirect()->route('AdvisorAdmin.index')
+              ->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Actualizo satisfactoriamente!');
     }
 
     /**

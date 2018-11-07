@@ -7,7 +7,7 @@
 	<div class="panel panel-default">
 		<div class="panel-heading"><center><h4>Exportar a Excel</h4></center></div>
 		<div class="panel-body">
-			<form class="" action="{{route('ProductExport.store')}}" role="form" method="POST" autocomplete="off">
+			<form class="" action="{{route('ExportOption.store')}}" role="form" method="POST" autocomplete="off">
 				{{ csrf_field() }}
 				<div class="form-group">
   	      <label for="namelabel">Plantilla</label>

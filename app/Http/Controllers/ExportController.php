@@ -3,10 +3,8 @@
 namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use Serfar\Exports\ProductsExport;
 
-class ProductExportController extends Controller
+class ExportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,7 @@ class ProductExportController extends Controller
      */
     public function index()
     {
-      return view('SerfarL.Authentication.Export.Export-index');
+        return view('SerfarL.Authentication.Export.Export-index');
     }
 
     /**

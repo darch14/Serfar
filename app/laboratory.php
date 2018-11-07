@@ -17,6 +17,6 @@ class laboratory extends Model
 
     public function brands()
     {
-        return $this->hasMany('Serfar\labimage');
+        return $this->hasMany('Serfar\brand');
     }
 }

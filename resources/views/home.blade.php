@@ -83,7 +83,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Excel <span class="caret"></span></a>
               <ul class="nav dropdown-menu">
-                <li> <a href="{{route('ProductExport.index')}}">Exportar</a> </li>
+                <li> <a href="{{route('ExportOption.index')}}">Exportar</a> </li>
                 <li> <a href="{{route('ImportOption.index')}}">Importar</a> </li>
               </ul>
             </li>

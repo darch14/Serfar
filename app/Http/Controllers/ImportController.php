@@ -5,6 +5,13 @@ namespace Serfar\Http\Controllers;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Serfar\Imports\AdvisorsImport;
+use Serfar\advisor;
+use Serfar\image;
+use Serfar\product;
+use Serfar\proimage;
+use Serfar\brand;
+use Serfar\laboraty;
+use Serfar\labimage;
 
 class ImportController extends Controller
 {
@@ -42,9 +49,71 @@ class ImportController extends Controller
       $path = storage_path('app');
       $file->move($path, $name);
 
-      $collection = Excel::import(new AdvisorsImport, $name);
+      if ($request->Input('data') == 'E') {
+        $collection = Excel::toArray(new AdvisorsImport, $name);
 
-      dd($collection);
+        for ($i=1; $i < count($collection[0]); $i++) {
+          $advisor = new advisor();
+          $advisor->name = $collection[0][$i][0];
+          $advisor->lastname1 = $collection[0][$i][1];
+          $advisor->lastname2 = $collection[0][$i][2];
+          $advisor->position = $collection[0][$i][3];
+          $advisor->email = $collection[0][$i][4];
+          $advisor->number = $collection[0][$i][5];
+
+          $advisor->save();
+
+          $img = new image();
+
+          $img->name = $collection[0][$i][6];
+          $img->advisor_id = $advisor->id;
+
+          $img->save();
+        }
+
+        // Excel::import(new AdvisorsImport, $name);
+      }else if ($request->Input('data') == 'P') {
+        $collection = Excel::toArray(new ProductsImport, $name);
+
+        for ($i=1; $i < count($collection[0]); $i++) {
+          $lab = new laboraty();
+          $lab->name = $collection[0][$i][6];
+          $lab->web = $collection[0][$i][7];
+
+          $lab->save();
+
+          $labimage = new labimage();
+          $labimage->name = $collection[0][$i][8];
+          $labimage->laboratory_id = $lab->id;
+
+          $labimage->save();
+
+          $brand = new brand();
+          $brand->laboratory_id = $lab->id;
+          $brand->name = $collection[0][$i][9];
+
+          $brand->save();
+
+          $product = new product();
+          $product->name = $collection[0][$i][0];
+          $product->description = $collection[0][$i][1];
+          $product->catagory = $collection[0][$i][2];
+          $product->unit = $collection[0][$i][3];
+          $product->brand_id = $brand->id;
+
+          $product->save();
+
+          $proimage = new proimage();
+          $proimage->name = $collection[0][$i][5];
+          $proimage->product_id = $product->id;
+
+          $product->save();
+        }
+      }
+      $info = 'Se importo con exito';
+
+      return view('SerfarL.Authentication.Import.Import-index')
+            ->with('info', $info);
     }
 
     /**

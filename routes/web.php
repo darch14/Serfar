@@ -62,7 +62,9 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('serfarltda/Authentication', 'HomeController@index')->name('home');
 
   // ------------------------------ Exports ----------------------------------------
-  Route::resource('ProductExport','ProductExportController');
+  Route::resource('ExportOption','ExportController');
+  // -------------------------------------------------------------------------------
+  // ------------------------------- Import ----------------------------------------
   Route::resource('ImportOption','ImportController');
   // -------------------------------------------------------------------------------
 });

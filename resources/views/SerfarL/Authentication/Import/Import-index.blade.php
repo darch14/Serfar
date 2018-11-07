@@ -12,6 +12,7 @@
 				<div class="form-group">
   	      <label for="namelabel">Plantilla</label>
           <select name="data" class="form-control">
+						<option value="E">Empleados</option>
             <option value="P">Productos</option>
           </select>
 				</div>

@@ -3,6 +3,8 @@
 namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Serfar\Exports\ProductsExport;
 
 class ExportController extends Controller
 {
@@ -35,11 +37,10 @@ class ExportController extends Controller
     public function store(Request $request)
     {
       if ($request->data == "P") {
-
+        return Excel::download(new ProductsExport, 'products.xlsx');
       }else{
         dd('NO DEFINIDO');
       }
-      return Excel::download(new ProductsExport, 'products.xlsx');
     }
 
     /**

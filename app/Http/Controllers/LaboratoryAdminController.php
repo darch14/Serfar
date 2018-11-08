@@ -17,7 +17,7 @@ class LaboratoryAdminController extends Controller
      */
     public function index()
     {
-        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
+        $laboratory = laboratory::orderBy('id', 'ASC')->get();
 
         return view('SerfarL.Authentication.Laboratory.laboratoryAdminList')
               ->with('laboratory', $laboratory);
@@ -98,7 +98,7 @@ class LaboratoryAdminController extends Controller
     {
       $laboratory = laboratory::find($id);
       $lab_image = $laboratory->lab_images()->where('laboratory_id', $laboratory->id)->get();
-      
+
       $laboratory->update($request->all());
 
       if (!empty($request->file)) {
@@ -106,7 +106,7 @@ class LaboratoryAdminController extends Controller
         $name = 'Laboratory_' . time() . '.' . $file->getClientOriginalName();
         $path = public_path() . '\images\Labs';
         $file->move($path, $name);
-        Storage::delete($lab_image[0]->name); 
+        Storage::delete($lab_image[0]->name);
 
         $lab_image[0]->update(['name' => $name]);
       }

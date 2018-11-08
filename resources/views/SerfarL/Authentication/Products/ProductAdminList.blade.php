@@ -3,7 +3,7 @@
 @section('content')
 
 <br><br>
-	<div class="panel panel-default"">
+	<div class="panel panel-default">
 		<div class="panel-heading"><center><h4>Listado de Productos</h4></center></div>
 	</div>
 	<input type="text" name="filtro" id="filtro" class="form-control" placeholder="Filtro">
@@ -11,7 +11,6 @@
 	    <thead>
 	    	<th style="text-align: center;">ID</th>
 		    <th style="text-align: center;">Nombre</th>
-		    <th style="text-align: center;">Marca</th>
 		    <th style="text-align: center;">Laboratorio</th>
 		    <th style="text-align: center;">Imagen</th>
 		    <th style="text-align: center;">Acción</th>
@@ -21,10 +20,9 @@
 		        <tr>
 			        <td>{{ $product->id }}</td>
 			        <td>{{ $product->name }}</td>
-			        <td>{{ $product->brand->name }}</td>
-			        <td>{{ $product->brand->laboratory->name }}</td>
-			        <td> 
-		            	<img src="{{ asset('images/prod/'. $product->pro_image->name ) }}" class="img-rounded" width="80px"> 
+			        <td>{{ $product->laboratory->name }}</td>
+			        <td>
+		            	<img src="{{ asset('images/prod/'. $product->pro_image->name ) }}" class="img-rounded" width="80px">
 		          	</td>
 		          	<td>
 			            <a href="{{ route('ProductAdmin.edit', $product->id) }}" class="btn btn-warning">
@@ -34,7 +32,7 @@
 			              	<span class="glyphicon glyphicon-trash" ></span>
 			            </a>
 			        </td>
-		        </tr>  
+		        </tr>
 		    @endforeach
 	    </tbody>
 	</table>

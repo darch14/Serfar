@@ -5,12 +5,13 @@ namespace Serfar\Http\Controllers;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Serfar\Imports\AdvisorsImport;
+use Serfar\Imports\ProductsImport;
 use Serfar\advisor;
 use Serfar\image;
 use Serfar\product;
 use Serfar\proimage;
 use Serfar\brand;
-use Serfar\laboraty;
+use Serfar\laboratory;
 use Serfar\labimage;
 
 class ImportController extends Controller
@@ -50,6 +51,7 @@ class ImportController extends Controller
       $file->move($path, $name);
 
       if ($request->Input('data') == 'E') {
+        dd('empleados');
         $collection = Excel::toArray(new AdvisorsImport, $name);
 
         for ($i=1; $i < count($collection[0]); $i++) {
@@ -73,41 +75,42 @@ class ImportController extends Controller
 
         // Excel::import(new AdvisorsImport, $name);
       }else if ($request->Input('data') == 'P') {
-        $collection = Excel::toArray(new ProductsImport, $name);
 
+        $collection = Excel::toArray(new ProductsImport, $name);
+        // dd($collection);
         for ($i=1; $i < count($collection[0]); $i++) {
-          $lab = new laboraty();
-          $lab->name = $collection[0][$i][6];
-          $lab->web = $collection[0][$i][7];
+          $lab = new laboratory();
+          $lab->name = $collection[0][$i][5];
+          $lab->web = $collection[0][$i][6];
 
           $lab->save();
 
           $labimage = new labimage();
-          $labimage->name = $collection[0][$i][8];
+          $labimage->name = $collection[0][$i][7];
           $labimage->laboratory_id = $lab->id;
 
           $labimage->save();
 
           $brand = new brand();
+          $brand->name = $collection[0][$i][8];
           $brand->laboratory_id = $lab->id;
-          $brand->name = $collection[0][$i][9];
 
           $brand->save();
 
           $product = new product();
           $product->name = $collection[0][$i][0];
           $product->description = $collection[0][$i][1];
-          $product->catagory = $collection[0][$i][2];
+          $product->category = $collection[0][$i][2];
           $product->unit = $collection[0][$i][3];
           $product->brand_id = $brand->id;
 
           $product->save();
 
           $proimage = new proimage();
-          $proimage->name = $collection[0][$i][5];
+          $proimage->name = $collection[0][$i][4];
           $proimage->product_id = $product->id;
 
-          $product->save();
+          $proimage->save();
         }
       }
       $info = 'Se importo con exito';

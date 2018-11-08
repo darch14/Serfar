@@ -65,14 +65,6 @@
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Marcas <span class="caret"></span></a>
-              <ul class="nav dropdown-menu">
-                <li> <a href="{{route('BrandAdmin.index')}}">Listado de Marcas</a> </li>
-                <li> <a href="{{route('BrandAdmin.create')}}">Registrar Marca</a> </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Catalogo <span class="caret"></span></a>
               <ul class="nav dropdown-menu">
                 <li> <a href="{{route('ProductAdmin.index')}}">Listado de Catalogos</a> </li>

@@ -53,13 +53,10 @@ Route::group(['middleware' => 'auth'], function() {
   Route::resource('LaboratoryAdmin','LaboratoryAdminController');
   Route::get('Laboratory/{id}/Destroy', 'LaboratoryAdminController@destroy')->name('LaboratoryDestroy');
 
-  Route::resource('BrandAdmin','BrandAdminController');
-  Route::get('Brand/{id}/Destroy', 'BrandAdminController@destroy')->name('BrandDestroy');
-
   Route::resource('ProductAdmin','ProductAdminController');
   Route::get('Product/{id}/Destroy', 'ProductAdminController@destroy')->name('ProductDestroy');
 
-  Route::get('serfarltda/Authentication', 'HomeController@index')->name('home');
+  Route::get('home', 'HomeController@index')->name('home');
 
   // ------------------------------ Exports ----------------------------------------
   Route::resource('ExportOption','ExportController');

@@ -3,7 +3,6 @@
 namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Serfar\brand;
 use Serfar\laboratory;
 use Serfar\product;
 use Serfar\proimage;
@@ -18,7 +17,7 @@ class ProductAdminController extends Controller
     public function index()
     {
         $product = product::orderBy('id', 'ASC')->paginate(8);
-        
+
         // $product->pro_image = $image;
 
         return view('SerfarL.Authentication.Products.ProductAdminList')
@@ -32,11 +31,11 @@ class ProductAdminController extends Controller
      */
     public function create()
     {
-        $brand = brand::orderBy('id', 'ASC')->paginate(8);
-        
+        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(8);
+
         return view('SerfarL.Authentication.Products.ProductAdminRegistration')
-                ->with('brand', $brand)
-                ->with('render', $brand->render());
+                ->with('laboratory', $laboratory)
+                ->with('render', $laboratory->render());
     }
 
     /**
@@ -88,12 +87,12 @@ class ProductAdminController extends Controller
         $product = product::find($id);
         // dd('edit');
 
-        $brand = brand::orderBy('id','ABC')->paginate(8);
+        $laboratory = laboratory::orderBy('id','ABC')->paginate(8);
 
         return view('SerfarL.Authentication.Products.ProductAdminEdit')
             ->with('product', $product)
-            ->with('brand', $brand)
-            ->with('render', $brand->render());
+            ->with('laboratory', $laboratory)
+            ->with('render', $laboratory->render());
     }
 
     /**
@@ -107,7 +106,7 @@ class ProductAdminController extends Controller
     {
         $product = product::find($id);
         // dd($request->all());
-        $pro_image = $product->pro_image()->where('product_id', $product->id)->get();      
+        $pro_image = $product->pro_image()->where('product_id', $product->id)->get();
         $product->update($request->all());
 
         if (!empty($request->file)) {
@@ -115,7 +114,7 @@ class ProductAdminController extends Controller
             $name = 'product_' . time() . '.' . $file->getClientOriginalName();
             $path = public_path() . '\images\prod';
             $file->move($path, $name);
-            Storage::delete($pro_image[0]->name); 
+            Storage::delete($pro_image[0]->name);
             $pro_image[0]->update(['name' => $name]);
         }
 

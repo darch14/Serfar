@@ -39,22 +39,25 @@
         </div><!-- /.col-lg-4 -->
       </div>
 
-      <hr class="featurette-divider">
-      <h2>Laboratorios</h2>
-      <div id="owl-demo">
-        @foreach($laboratory as $laboratory)
-          <div class="item"><img src="{{asset('images/labs/'.$laboratory->lab_images->name)}}" alt=""></div>
-        @endforeach
-      </div>
+      @if (count($laboratory) != 0)
+        <hr class="featurette-divider">
+        <h2>Laboratorios</h2>
+        <div id="owl-demo">
+          @foreach($laboratory as $laboratory)
+            <div class="item"><img src="{{asset('images/labs/'.$laboratory->lab_images->name)}}" alt=""></div>
+          @endforeach
+        </div>
+      @endif
 
-      <hr class="featurette-divider">
-
-      <h2>Productos</h2>
-      <div id="owl-productos">
-        @foreach($product as $product)
-          <div class="item"><img src="{{asset('images/prod/'.$product->pro_image->name)}}" alt="Losartan"></div>
-        @endforeach
-      </div>
+      @if (count($product) != 0)
+        <hr class="featurette-divider">
+        <h2>Productos</h2>
+        <div id="owl-productos">
+          @foreach($product as $product)
+            <div class="item"><img src="{{asset('images/prod/'.$product->pro_image->name)}}" alt="Losartan"></div>
+          @endforeach
+        </div>
+      @endif
 
       <!-- /END THE FEATURETTES -->
     </div>

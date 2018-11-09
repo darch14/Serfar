@@ -15,10 +15,13 @@ class ProductsImport implements ToModel
     public function model(array $row)
     {
         return new product([
-            'name'         => $row[0],
-            'description'  => $row[0],
-            'category'     => $row[0],
-            'unit'         => $row[0],
+            'reference'    => $row[0],
+            'name'         => $row[1],
+            'description'  => $row[2],
+            'category'     => $row[3],
+            'use'          => $row[4],
+            'invima'       => $row[5],
+            'unit'         => $row[6],
         ]);
     }
 }

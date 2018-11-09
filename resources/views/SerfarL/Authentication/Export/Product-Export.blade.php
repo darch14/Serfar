@@ -1,15 +1,17 @@
 <table class="table table-bordered">
   <thead>
     <tr class="info">
-        <th >Nombre</th>
-        <th >Descripción</th>
-        <th >Categoria</th>
-        <th >Unidad</th>
-        <th >Imagen de Producto</th>
-        <th >Nombre de Laboratorio</th>
-        <th >Pagina Web</th>
-        <th >Imagen de Laboratorio</th>
-        <th >Marca</th>
+      <th style="background-color:#078BEF">Referencia</th>
+      <th style="background-color:#078BEF">Nombre del Producto</th>
+      <th style="background-color:#078BEF">Descripción</th>
+      <th style="background-color:#078BEF">Categoria</th>
+      <th style="background-color:#078BEF">Uso Terapéutico</th>
+      <th style="background-color:#078BEF">Unidad de Venta</th>
+      <th style="background-color:#078BEF">Registro sanitario INVIMA</th>
+      <th style="background-color:#078BEF">Imagen de Producto</th>
+      <th style="background-color:#078BEF">Nombre de Laboratorio</th>
+      <th style="background-color:#078BEF">Pagina Web del laboratorio</th>
+      <th style="background-color:#078BEF">Imagen de Laboratorio</th>
     </tr>
   </thead>
   <tbody>

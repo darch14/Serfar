@@ -80,34 +80,31 @@ class ImportController extends Controller
         // dd($collection);
         for ($i=1; $i < count($collection[0]); $i++) {
           $lab = new laboratory();
-          $lab->name = $collection[0][$i][5];
-          $lab->web = $collection[0][$i][6];
+          $lab->name = $collection[0][$i][8];
+          $lab->web = $collection[0][$i][9];
 
           $lab->save();
 
           $labimage = new labimage();
-          $labimage->name = $collection[0][$i][7];
+          $labimage->name = $collection[0][$i][10];
           $labimage->laboratory_id = $lab->id;
 
           $labimage->save();
 
-          $brand = new brand();
-          $brand->name = $collection[0][$i][8];
-          $brand->laboratory_id = $lab->id;
-
-          $brand->save();
-
           $product = new product();
-          $product->name = $collection[0][$i][0];
-          $product->description = $collection[0][$i][1];
-          $product->category = $collection[0][$i][2];
-          $product->unit = $collection[0][$i][3];
-          $product->brand_id = $brand->id;
+          $product->reference = $collection[0][$i][0];
+          $product->name = $collection[0][$i][1];
+          $product->description = $collection[0][$i][2];
+          $product->category = $collection[0][$i][3];
+          $product->use = $collection[0][$i][4];
+          $product->unit = $collection[0][$i][5];
+          $product->invima = $collection[0][$i][6];
+          $product->laboratory_id = $lab->id;
 
           $product->save();
 
           $proimage = new proimage();
-          $proimage->name = $collection[0][$i][4];
+          $proimage->name = $collection[0][$i][7];
           $proimage->product_id = $product->id;
 
           $proimage->save();

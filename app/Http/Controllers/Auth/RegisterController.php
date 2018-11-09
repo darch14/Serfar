@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'serfarltda/Authentication';
+    protected $redirectTo = 'home';
 
     /**
      * Create a new controller instance.

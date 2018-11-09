@@ -26,6 +26,10 @@
           <input type="text" name="category" class="form-control" placeholder="Categoria" value="{{$product->category}}" required>
 				</div>
 				<div class="form-group">
+					<label for="namelabel">Uso terapéutico</label>
+					<textarea name="use" placeholder="Uso terapéutico" maxlength="499" class="form-control" required>{{$product->use}}</textarea>
+				</div>
+				<div class="form-group">
 					<label for="namelabel">Unidad de Venta</label>
           <input type="text" name="unit" class="form-control" placeholder="Unidad de Venta" value="{{$product->unit}}" required>
 				</div>

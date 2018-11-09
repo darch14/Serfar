@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('description', 500);
             $table->string('category');
-            $table->string('use');
+            $table->string('use', 500);
             $table->string('unit');
             $table->string('invima');
             $table->integer('laboratory_id')->unsigned();

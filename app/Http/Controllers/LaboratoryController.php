@@ -15,8 +15,8 @@ class LaboratoryController extends Controller
      */
     public function index()
     {
-        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
-        
+        $laboratory = laboratory::orderBy('id', 'ASC')->get();
+
         return view('SerfarL.LaboratoryL')
               ->with('laboratory', $laboratory);
     }

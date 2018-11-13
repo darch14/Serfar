@@ -19,9 +19,8 @@ Route::get('/', [
     //'as' => 'Swelcome', 'uses' => 'welcomeController@index'
     //return view('Swelcome');
 ]);
-/*Route::get('serfarltda/', [
-    'as' => 'routeHome', 'uses' => 'HomeLController@index'
-]);*/
+// Route::view('/principal', 'SerfarL.principal');
+
 Route::get('serfarltda/Laboraty', [
     'as' => 'Laboraty', 'uses' => 'LaboratoryController@index'
 ]);

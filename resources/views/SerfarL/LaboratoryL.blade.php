@@ -3,6 +3,7 @@
 @section('title', '- Laboratory')
 
 @section('content')
+
   <div class="container marketing">
     <div class="text-center title ">
       Laboratorios
@@ -16,15 +17,17 @@
 
     <div class="row post center">
       @foreach($laboratory as $laboratory)
-        <div class="span3 center">
-          <figure class="link-img">
-            <div class="img-rounded img-border">
-              <div class="img-block">
-                <img src="{{ asset('images/labs/'.$laboratory->lab_images->name) }}" alt="">
+        @if (!empty($laboratory->lab_images))
+          <div class="span3 center">
+            <figure class="link-img">
+              <div class="img-rounded img-border">
+                <div class="img-block">
+                  <img src="{{ asset('images/labs/'.$laboratory->lab_images->name) }}" alt="">
+                </div>
               </div>
-            </div>
-          </figure>
-        </div>
+            </figure>
+          </div>
+        @endif
       @endforeach
     </div>
 

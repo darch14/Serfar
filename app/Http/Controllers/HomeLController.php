@@ -15,8 +15,8 @@ class HomeLController extends Controller
      */
     public function index()
     {
-        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(5);
-        $product = product::orderBy('id', 'ASC')->paginate(5);
+        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(10);
+        $product = product::orderBy('id', 'ASC')->paginate(10);
 
         return view('SerfarL.HomeL')
             ->with('laboratory', $laboratory)

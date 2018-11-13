@@ -5,6 +5,7 @@ namespace Serfar\Http\Controllers;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Serfar\Imports\AdvisorsImport;
+use Serfar\Imports\LaboratoryImport;
 use Serfar\Imports\ProductsImport;
 use Serfar\advisor;
 use Serfar\image;
@@ -62,52 +63,61 @@ class ImportController extends Controller
           $advisor->position = $collection[0][$i][3];
           $advisor->email = $collection[0][$i][4];
           $advisor->number = $collection[0][$i][5];
-
           $advisor->save();
 
           $img = new image();
-
           $img->name = $collection[0][$i][6];
           $img->advisor_id = $advisor->id;
-
           $img->save();
         }
 
         // Excel::import(new AdvisorsImport, $name);
+      }elseif ($request->Input('data') == 'L') {
+        $collection = Excel::toArray(new LaboratoryImport, $name);
+
+        for ($i=1; $i < count($collection[0]); $i++) {
+          $lab = new laboratory();
+          $lab->name = $collection[0][$i][0];
+          $lab->web = $collection[0][$i][1];
+          $lab->save();
+
+          if (!empty($collection[0][$i][2])) {
+            $labimage = new labimage();
+            $labimage->name = $collection[0][$i][2];
+            $labimage->laboratory_id = $lab->id;
+            $labimage->save();
+          }
+        }
       }else if ($request->Input('data') == 'P') {
 
         $collection = Excel::toArray(new ProductsImport, $name);
         // dd($collection);
         for ($i=1; $i < count($collection[0]); $i++) {
-          $lab = new laboratory();
-          $lab->name = $collection[0][$i][8];
-          $lab->web = $collection[0][$i][9];
-
-          $lab->save();
-
-          $labimage = new labimage();
-          $labimage->name = $collection[0][$i][10];
-          $labimage->laboratory_id = $lab->id;
-
-          $labimage->save();
-
-          $product = new product();
-          $product->reference = $collection[0][$i][0];
-          $product->name = $collection[0][$i][1];
-          $product->description = $collection[0][$i][2];
-          $product->category = $collection[0][$i][3];
-          $product->use = $collection[0][$i][4];
-          $product->unit = $collection[0][$i][5];
-          $product->invima = $collection[0][$i][6];
-          $product->laboratory_id = $lab->id;
-
-          $product->save();
-
-          $proimage = new proimage();
-          $proimage->name = $collection[0][$i][7];
-          $proimage->product_id = $product->id;
-
-          $proimage->save();
+          // $lab = new laboratory();
+          // $lab->name = $collection[0][$i][8];
+          // $lab->web = $collection[0][$i][9];
+          // $lab->save();
+          //
+          // $labimage = new labimage();
+          // $labimage->name = $collection[0][$i][10];
+          // $labimage->laboratory_id = $lab->id;
+          // $labimage->save();
+          //
+          // $product = new product();
+          // $product->reference = $collection[0][$i][0];
+          // $product->name = $collection[0][$i][1];
+          // $product->description = $collection[0][$i][2];
+          // $product->category = $collection[0][$i][3];
+          // $product->use = $collection[0][$i][4];
+          // $product->unit = $collection[0][$i][5];
+          // $product->invima = $collection[0][$i][6];
+          // $product->laboratory_id = $lab->id;
+          // $product->save();
+          //
+          // $proimage = new proimage();
+          // $proimage->name = $collection[0][$i][7];
+          // $proimage->product_id = $product->id;
+          // $proimage->save();
         }
       }
       $info = 'Se importo con exito';

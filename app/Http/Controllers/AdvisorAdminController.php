@@ -20,7 +20,9 @@ class AdvisorAdminController extends Controller
         $advisor = advisor::orderBy('id', 'ASC')->paginate(5);
 
         return view('SerfarL.Authentication.Advisors.AdvisorAdminList')
-              ->with('advisor', $advisor);
+              ->with('advisor', $advisor)
+              ->with('validIndex', 'NO')
+              ->with('fondo1', "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
 
     }
 

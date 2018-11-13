@@ -18,7 +18,9 @@ class LaboratoryController extends Controller
         $laboratory = laboratory::orderBy('id', 'ASC')->get();
 
         return view('SerfarL.LaboratoryL')
-              ->with('laboratory', $laboratory);
+              ->with('laboratory', $laboratory)
+              ->with('validIndex', 'NO')
+              ->with('fondo1', asset('images/fondos/labs.jpg'));
     }
 
     /**

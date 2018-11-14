@@ -188,3 +188,10 @@ figure:hover::before {
 blockquote.blue{
 	border-left: 5px solid #36708D;
 }
+
+.table-wrapper-scroll-y {
+	display: block;
+	max-height: 200px;
+	overflow-y: auto;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}

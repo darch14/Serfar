@@ -3,10 +3,8 @@
 namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Serfar\advisor;
-use Serfar\image;
 
-class HumanController extends Controller
+class PortfolioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +13,7 @@ class HumanController extends Controller
      */
     public function index()
     {
-        $advisor = advisor::orderBy('position', 'ASC')->get();
-
-        return view('SerfarL.HumanL')
-            ->with('advisor', $advisor)
+      return view('SerfarL.Portfolio')
             ->with('validIndex', 'NO')
             ->with('fondo1', "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
     }

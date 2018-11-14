@@ -40,9 +40,6 @@ Route::get('serfarltda/error', function(){
   return view('fragment.error');
 });
 
-//Route::resource('serfar','welcomeController');
-//Route::resource('serfarltda','HomeLController');
-//Route::resource('Laboraty','LaboratoryController');
 Route::resource('ContactL','ContactLController');
 
 Route::group(['middleware' => 'auth'], function() {

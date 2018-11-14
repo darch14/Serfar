@@ -16,7 +16,7 @@ class ProductAdminController extends Controller
      */
     public function index()
     {
-        $product = product::orderBy('id', 'ASC')->paginate(8);
+        $product = product::orderBy('id', 'ASC');
 
         // $product->pro_image = $image;
 
@@ -31,11 +31,10 @@ class ProductAdminController extends Controller
      */
     public function create()
     {
-        $laboratory = laboratory::orderBy('id', 'ASC')->paginate(8);
+        $laboratory = laboratory::orderBy('id', 'ASC')->get();
 
         return view('SerfarL.Authentication.Products.ProductAdminRegistration')
-                ->with('laboratory', $laboratory)
-                ->with('render', $laboratory->render());
+                ->with('laboratory', $laboratory);
     }
 
     /**

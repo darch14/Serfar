@@ -19,12 +19,10 @@
 
 	    <div class="row post center">
 	      @foreach($advisor as $advisor)
-	        <div class="col-xs-6 center">
-	          <img src="{{ asset('images/asesores/'.$advisor->images->name) }}" class="img-thumbnail" alt="{{ $advisor->name }}" width="300px">
-	          <br>
-	          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{'Modal'.$advisor->id}}">Ver Datos</button>
-	          @include('SerfarL.ModalHuman')
-
+	        <div class="col-xs-4 center">
+	          <img src="{{ asset('images/asesores/'.$advisor->images->name) }}" class="img-thumbnail" alt="{{ $advisor->name }}" width="250px" data-toggle="modal" data-target="#{{'Modal'.$advisor->id}}">
+	          <button type="button" class="btn btn-default  img-thumbnail" style="width:250px" data-toggle="modal" data-target="#{{'Modal'.$advisor->id}}">Datos</button>
+	          @include('SerfarL.ModalHuman')<br><br>
 	        </div>
 	      @endforeach
 	    </div>

@@ -19,8 +19,7 @@ Route::get('/', [
     //'as' => 'Swelcome', 'uses' => 'welcomeController@index'
     //return view('Swelcome');
 ]);
-// Route::view('/principal', 'SerfarL.principal');
-
+// ----------------------- INTERFAZ USUARIO ------------------------------------
 Route::get('serfarltda/Laboraty', [
     'as' => 'Laboraty', 'uses' => 'LaboratoryController@index'
 ]);
@@ -36,12 +35,15 @@ Route::get('serfarltda/ContactL', [
 Route::get('serfarltda/Portfolio', [
     'as' => 'Portfolio', 'uses' => 'PortfolioController@index'
 ]);
+Route::get('Product/Portfolio/store', 'PortfolioController@store')->name('Portfolio.store');
+Route::get('Product/{id}/Portfolio', 'PortfolioController@detail')->name('PortfolioDetail');
+Route::resource('ContactL','ContactLController');
+// -----------------------------------------------------------------------------
+
 Route::get('serfarltda/error', function(){
   return view('fragment.error');
 });
-
-Route::resource('ContactL','ContactLController');
-
+// -------------------- INTERFAZ ADMINISTRATIVA --------------------------------
 Route::group(['middleware' => 'auth'], function() {
   Route::resource('AdvisorAdmin','AdvisorAdminController');
   Route::get('Advisor/{id}/Destroy', 'AdvisorAdminController@destroy')->name('AdvisorDestroy');
@@ -54,11 +56,12 @@ Route::group(['middleware' => 'auth'], function() {
 
   Route::get('home', 'HomeController@index')->name('home');
 
-  // ------------------------------ Exports ----------------------------------------
+  // ------------------------------ Exports ------------------------------------
   Route::resource('ExportOption','ExportController');
-  // -------------------------------------------------------------------------------
-  // ------------------------------- Import ----------------------------------------
+  // ---------------------------------------------------------------------------
+  // ------------------------------- Import ------------------------------------
   Route::resource('ImportOption','ImportController');
-  // -------------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
 });
 Auth::routes();
+// -----------------------------------------------------------------------------

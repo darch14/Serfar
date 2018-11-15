@@ -24,7 +24,7 @@
                 <div class="caption">
                   <h3>{{$product->name}}</h3>
                   <p>...</p>
-                  <p><a href="{{ route('portfolio.edit', $product->id) }}" class="btn btn-primary btn-block" role="button">
+                  <p><a href="{{ route('PortfolioDetail', $product->id) }}" class="btn btn-primary btn-block" role="button">
                     <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
                     saber mas
                   </a></p>
@@ -35,5 +35,6 @@
         @endif
       @endforeach
     </div>
+
   </div>
 @endsection

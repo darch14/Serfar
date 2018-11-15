@@ -16,7 +16,7 @@ class ProductAdminController extends Controller
      */
     public function index()
     {
-        $product = product::orderBy('id', 'ASC');
+        $product = product::orderBy('id', 'ASC')->get();
 
         // $product->pro_image = $image;
 

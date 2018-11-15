@@ -3,6 +3,7 @@
 namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Serfar\product;
 
 class PortfolioController extends Controller
 {
@@ -13,7 +14,10 @@ class PortfolioController extends Controller
      */
     public function index()
     {
+      $product = product::orderBy('id', 'ASC')->get();
+
       return view('SerfarL.Portfolio')
+            ->with('product', $product)
             ->with('validIndex', 'NO')
             ->with('fondo1', "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
     }

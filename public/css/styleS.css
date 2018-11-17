@@ -43,6 +43,23 @@ footer{
   -moz-border-radius: 100px;
   border-radius: 100px;
 }
+.move-bg-icon-xs{
+  width:52px;
+  height:52px;
+  display:inline-block;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color:#1C8AF2;
+  overflow:hidden;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+	float: left;
+}
+
+.title-span{
+	padding-top: 5px;
+}
 
 .link-block{color:#6d6e71;overflow:hidden;text-align:center;padding:16px 18px;margin-bottom:23px;display:block;text-decoration:none;border:1px solid #e0e0e0}
 .link-block:hover{background:url(../images/other/26.png) repeat-x bottom #efefef;color:#333;margin-bottom:24px;border-bottom:0px}
@@ -52,6 +69,7 @@ footer{
 .icon-4{background-image:url(../images/home/contactenos.png)}
 .icon-5{background-image:url(../images/home/medicamento.png)}
 .icon-6{background-image:url(../images/home/vendaje.png)}
+.icon-7{background-image:url(../images/home/test.png)}
 .labs-block{color:#6d6e71;overflow:hidden;text-align:center;padding:16px 18px;margin-bottom:23px;display:block;text-decoration:none;border:1px solid #e0e0e0}
 
 hr.style-eight {

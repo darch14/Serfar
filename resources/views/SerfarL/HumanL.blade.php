@@ -8,7 +8,7 @@
 	    <div class="text-center title ">
 	      Equipo Humano
 	    </div>
-	    <hr class="style-eight">
+	    <hr class="style13">
 	    <div class="center">
 	      <br><p class="lead">
 	        En SERFAR LTDA, asumimos como compromiso contribuir al bienestar de la población a través de la distribución de productos para la salud, que cumplan con las necesidades y expectativas de nuestros clientes. Fomentamos una cultura corporativa basada en la hospitalidad, excelente servicio, integridad y respeto.

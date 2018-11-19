@@ -7,7 +7,7 @@
     <div class="text-center title ">
       Portafolio
     </div>
-    <hr class="style-eight">
+    <hr class="style13">
     <div class="center">
       <br><p class="lead">
         Contamos con las mejores y las mas reconocidas marcas del pais, asi garantizamos la calidad de nuestros productos.

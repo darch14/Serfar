@@ -54,7 +54,7 @@
         <h2>Productos</h2>
         <div id="owl-productos">
           @foreach($product as $product)
-            <div class="item"><img src="{{asset('images/prod/'.$product->pro_image->name)}}" alt="Losartan"></div>
+            <div class="item"><img src="{{asset('images/prod/'.$product->pro_image->name)}}" width="206" height="130" alt="Losartan"></div>
           @endforeach
         </div>
       @endif

@@ -7,7 +7,7 @@
     <div class="text-center title ">
       Quienes Somos
     </div>
-    <hr class="style-eight">
+    <hr class="style13">
     <div class="row featurette">
       <div class="col-md-6">
         <h2 class="featurette-heading">Nuestra Sede</h2>
@@ -23,14 +23,14 @@
         <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" src="{{asset('images/areas/banner-nuestrasede.png')}}" data-holder-rendered="true">
       </div>
     </div>
-    <hr class="style-eight margin-80">
+    <hr class="style13 margin-80">
     <h2 class="featurette-heading text-center">Historia</h2><br>
     <p class="lead text-center">
       SERFAR LTDA. inicia sus labores el 29 de junio de 2007, con cubrimiento
       inicial en la ciudad de Barranquilla, extendiéndose así en estos {{date('Y')-2007}} años
       en los departamentos de Sucre, Córdoba, Magdalena, Cesar, La Guajira y
       Bolívar. Actualmente Somos una empresa privada, sólida, dedicada a la
-      prestación de servicios de atención farmacéutica, suministro, comercialización 
+      prestación de servicios de atención farmacéutica, suministro, comercialización
       y distribución de medicamentos e insumos hospitalarios a las entidades del
       sector de la salud, brindando apoyo clínico y administrativo de alta calidad,
       cuyo único fin es la promoción, prevención y recuperación de la salud

@@ -6,7 +6,7 @@
   <div class="container">
     <div class="text-center title ">
       Contacte con Nosotros
-    </div><br><br>
+    </div><hr class="style13"><br><br>
     @include('fragment.error')
     <form class="" action="/ContactL" role="form" method="post">
       {{ csrf_field() }}

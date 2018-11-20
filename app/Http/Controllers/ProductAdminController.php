@@ -86,12 +86,11 @@ class ProductAdminController extends Controller
         $product = product::find($id);
         // dd('edit');
 
-        $laboratory = laboratory::orderBy('id','ABC')->paginate(8);
+        $laboratory = laboratory::orderBy('id', 'ASC')->get();
 
         return view('SerfarL.Authentication.Products.ProductAdminEdit')
             ->with('product', $product)
-            ->with('laboratory', $laboratory)
-            ->with('render', $laboratory->render());
+            ->with('laboratory', $laboratory);
     }
 
     /**

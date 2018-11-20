@@ -2,14 +2,15 @@
 
 @section('title', '- Portafolio')
 
+@section('breadcrumbs')
+  <ol class="breadcrumb breadcrumb-state">
+    <li><a href="{{route('routeHome')}}">Inicio</a></li>
+    <li><a href="{{route('Portfolio')}}">Portafolio</a></li>
+    <li class="active">Resultado de busqueda</li>
+  </ol>
+@endsection
+
 @section('content')
-  {{-- <div class="up">
-    <ol class="breadcrumb">
-      <li><a href="">Inicio</a></li>
-      <li><a href="">Portafolio</a></li>
-      <li class="active">Resultado de Busqueda</li>
-    </ol>
-  </div> --}}
   <div class="container marketing">
     <div class="text-center title ">
       {{$product->name}}
@@ -18,7 +19,7 @@
     <br>
     <div class="row">
       <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-        <img src="{{ asset('images/prod/'.$product->pro_image->name) }}" class="img-responsive" alt="">
+        <img src="{{ asset('images/prod/'.$product->pro_image->name) }}" class="img-responsive img-rounded" alt="">
       </div>
       <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
         <span class="move-item icon-7 move-bg-icon-xs"></span>

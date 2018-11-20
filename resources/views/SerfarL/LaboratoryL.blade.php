@@ -2,6 +2,13 @@
 
 @section('title', '- Laboratory')
 
+@section('breadcrumbs')
+  <ol class="breadcrumb breadcrumb-state">
+    <li><a href="{{route('routeHome')}}">Inicio</a></li>
+    <li class="active">Laboratorios</li>
+  </ol>
+@endsection
+
 @section('content')
 
   <div class="container marketing">

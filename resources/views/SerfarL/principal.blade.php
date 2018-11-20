@@ -78,6 +78,11 @@
         <div class="item active">
           <img class="first-slide" src="{{$fondo1}}" alt="First slide">
         </div>
+        @if ($validIndex != "SI")
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">@yield('breadcrumbs')</h3>
+          </div>
+        @endif
         @if ($validIndex == "SI")
           <div class="item">
             <img class="second-slide" src="{{asset('images/fondos/fondoSerfar2.png')}}" alt="Second slide">

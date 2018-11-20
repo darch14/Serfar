@@ -1,5 +1,9 @@
 @extends('home')
 
+@section('link')
+	<link rel="stylesheet" href="{{asset('css/styleS.css')}}">
+@endsection
+
 @section('content')
 
 	<br><br>
@@ -40,34 +44,37 @@
 				<div class="form-group">
 					<label for="brandlabel">laboratorio</label>
 					<input type="text" name="filtro" id="filtro" class="form-control" placeholder="Filtro">
-					<div class="table-responsive">
+					<div class="table-responsive table-wrapper-scroll-y">
 						<table class="table table-striped table-hover">
-						    <thead>
-						        <tr>
-						        	<th>Item</th>
-						            <th>Nombre</th>
-						            <th>Logo</th>
-						        </tr>
-						    </thead>
-						    <tbody id="tbl_lab">
-						    	@foreach($laboratory as $laboratory)
-							    	<tr>
-						           <td>
-						            	<span class="input-group-addon">
-								            @if($laboratory->id == $product->laboratory_id)
-												    	<input type="radio" name="brand_id" value="{{ $laboratory->id }}" aria-label="" checked required>
-											    	@else
-											    		<input type="radio" name="brand_id" value="{{ $laboratory->id }}" aria-label="" required>
-											    	@endif
-									    		</span>
-						            </td>
-						            <td>{{ $laboratory->name }}</td>
-						            <td><img src="{{ asset('images/labs/'.$laboratory->lab_images->name) }}" width="60px"></td>
-						        </tr>
-					        @endforeach
-						    </tbody>
+					    <thead>
+					        <tr>
+					        	<th>Item</th>
+					            <th>Nombre</th>
+					            <th>Logo</th>
+					        </tr>
+					    </thead>
+					    <tbody id="tbl_lab">
+					    	@foreach($laboratory as $laboratory)
+						    	<tr>
+					           <td>
+					            	<span class="input-group-addon">
+							            @if($laboratory->id == $product->laboratory_id)
+											    	<input type="radio" name="brand_id" value="{{ $laboratory->id }}" aria-label="" checked required>
+										    	@else
+										    		<input type="radio" name="brand_id" value="{{ $laboratory->id }}" aria-label="" required>
+										    	@endif
+								    		</span>
+					            </td>
+					            <td>{{ $laboratory->name }}</td>
+											@if (!empty($laboratory->lab_images))
+												<td><img src="{{ asset('images/labs/'. $laboratory->lab_images->name ) }}" width="60px"></td>
+											@else
+												<td>No tiene</td>
+											@endif
+					        </tr>
+				        @endforeach
+					    </tbody>
 						</table>
-						{!! $render !!}
 					</div>
 				</div>
 				<div class="form-group">

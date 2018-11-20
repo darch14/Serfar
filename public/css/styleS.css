@@ -237,3 +237,13 @@ blockquote.blue{
 	overflow-y: auto;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
+
+.breadcrumb-state {
+    background-color: #ffffff40;
+    border-radius: 0;
+    border-bottom: 0px solid #D4D5DA;
+    font-weight: 300;
+    font-size: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}

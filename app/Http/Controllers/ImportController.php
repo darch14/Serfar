@@ -52,7 +52,7 @@ class ImportController extends Controller
       $file->move($path, $name);
 
       if ($request->Input('data') == 'E') {
-        dd('empleados');
+        // dd('empleados');
         $collection = Excel::toArray(new AdvisorsImport, $name);
 
         for ($i=1; $i < count($collection[0]); $i++) {
@@ -93,37 +93,29 @@ class ImportController extends Controller
         $collection = Excel::toArray(new ProductsImport, $name);
         // dd($collection);
         for ($i=1; $i < count($collection[0]); $i++) {
-          // $lab = new laboratory();
-          // $lab->name = $collection[0][$i][8];
-          // $lab->web = $collection[0][$i][9];
-          // $lab->save();
-          //
-          // $labimage = new labimage();
-          // $labimage->name = $collection[0][$i][10];
-          // $labimage->laboratory_id = $lab->id;
-          // $labimage->save();
-          //
-          // $product = new product();
-          // $product->reference = $collection[0][$i][0];
-          // $product->name = $collection[0][$i][1];
-          // $product->description = $collection[0][$i][2];
-          // $product->category = $collection[0][$i][3];
-          // $product->use = $collection[0][$i][4];
-          // $product->unit = $collection[0][$i][5];
-          // $product->invima = $collection[0][$i][6];
-          // $product->laboratory_id = $lab->id;
-          // $product->save();
-          //
-          // $proimage = new proimage();
-          // $proimage->name = $collection[0][$i][7];
-          // $proimage->product_id = $product->id;
-          // $proimage->save();
+          $product = new product();
+          $product->reference = $collection[0][$i][0];
+          $product->name = $collection[0][$i][1];
+          $product->description = $collection[0][$i][2];
+          $product->category = $collection[0][$i][3];
+          $product->use = $collection[0][$i][4];
+          $product->unit = $collection[0][$i][5];
+          $product->invima = $collection[0][$i][6];
+          $product->laboratory_id = $collection[0][$i][8];
+          // dd($product);
+          $product->save();
+          echo $i;
+
+          $proimage = new proimage();
+          $proimage->name = $collection[0][$i][7];
+          $proimage->product_id = $product->id;
+          $proimage->save();
         }
       }
       $info = 'Se importo con exito';
 
-      return view('SerfarL.Authentication.Import.Import-index')
-            ->with('info', $info);
+      // return view('SerfarL.Authentication.Import.Import-index')
+      //       ->with('info', $info);
     }
 
     /**

@@ -19,6 +19,7 @@ class HumanController extends Controller
 
         return view('SerfarL.HumanL')
             ->with('advisor', $advisor)
+            ->with('nav', 'human')
             ->with('validIndex', 'NO')
             ->with('fondo1', "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
     }

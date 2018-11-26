@@ -19,6 +19,7 @@ class LaboratoryController extends Controller
 
         return view('SerfarL.LaboratoryL')
               ->with('laboratory', $laboratory)
+              ->with('nav', 'laboratory')
               ->with('validIndex', 'NO')
               ->with('fondo1', asset('images/fondos/labs.jpg'));
     }

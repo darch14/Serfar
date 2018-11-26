@@ -18,6 +18,7 @@ class ContactLController extends Controller
     public function index()
     {
         return view('SerfarL.ContactL')
+            ->with('nav', 'contact')
             ->with('validIndex', 'NO')
             ->with('fondo1', "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
     }

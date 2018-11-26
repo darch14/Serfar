@@ -21,6 +21,7 @@ class HomeLController extends Controller
         return view('SerfarL.HomeL')
             ->with('laboratory', $laboratory)
             ->with('product', $product)
+            ->with('nav', 'index')
             ->with('validIndex', 'SI')
             ->with('fondo1', "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
     }

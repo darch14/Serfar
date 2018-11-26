@@ -45,3 +45,15 @@
     $("#li-lab").attr("class","active");
   </script>
 @endsection()
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#li-ini").removeAttr("class");
+      $("#li-med").removeAttr("class");
+      $("#li-lab").attr("class","active");
+      $("#li-hum").removeAttr("class");
+      $("#li-qui").removeAttr("class");
+      $("#li-con").removeAttr("class");
+    });
+  </script>
+@endsection

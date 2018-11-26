@@ -4,6 +4,7 @@ namespace Serfar\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Serfar\product;
+use Serfar\laboratory;
 
 class PortfolioController extends Controller
 {
@@ -15,11 +16,14 @@ class PortfolioController extends Controller
     public function index()
     {
       $product = product::orderBy('id', 'ASC')->get();
+      $laboratory = laboratory::orderBy('id', 'ASC')->get();
 
       return view('SerfarL.Portfolio')
             ->with('product', $product)
+            ->with('laboratory', $laboratory)
             ->with('validIndex', 'NO')
-            ->with('fondo1', "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
+            ->with('nav', 'portafolio')
+            ->with('fondo1', asset('images/fondos/quimicos.jpg'));
     }
 
     /**
@@ -46,7 +50,27 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        
+      $product = product::orderBy('id', 'ASC');
+      $laboratory = laboratory::orderBy('id', 'ASC')->get();
+
+      if (!empty($request->name)) {
+        $product = $product->where('name', $request->name);
+      }
+      if ($request->category != "null") {
+        $product = $product->where('category', $request->category);
+      }
+      if ($request->lab != "null") {
+        $product = $product->where('laboratory_id', $request->lab);
+      }
+      $product = $product->get();
+
+      return view('SerfarL.Portfolio')
+            ->with('product', $product)
+            ->with('laboratory', $laboratory)
+            ->with('validIndex', 'NO')
+            ->with('nav', 'portafolio')
+            ->with('fondo1', asset('images/fondos/quimicos.jpg'));
+
     }
 
 }

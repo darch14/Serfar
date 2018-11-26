@@ -3,7 +3,7 @@
 @section('title', '- Portafolio')
 
 @section('breadcrumbs')
-  <ol class="breadcrumb breadcrumb-state">
+  <ol class="breadcrumb left">
     <li><a href="{{route('routeHome')}}">Inicio</a></li>
     <li><a href="{{route('Portfolio')}}">Portafolio</a></li>
     <li class="active">Resultado de busqueda</li>
@@ -36,4 +36,17 @@
     </div>
     <hr class="style13">
   </div>
+@endsection
+
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#li-ini").removeAttr("class");
+      $("#li-med").attr("class","active");
+      $("#li-lab").removeAttr("class");
+      $("#li-hum").removeAttr("class");
+      $("#li-qui").removeAttr("class");
+      $("#li-con").removeAttr("class");
+    });
+  </script>
 @endsection

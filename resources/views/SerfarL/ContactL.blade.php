@@ -52,3 +52,15 @@
     </form>
   </div>
 @endsection
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#li-ini").removeAttr("class");
+      $("#li-med").removeAttr("class");
+      $("#li-lab").removeAttr("class");
+      $("#li-hum").removeAttr("class");
+      $("#li-qui").removeAttr("class");
+      $("#li-con").attr("class","active");
+    });
+  </script>
+@endsection

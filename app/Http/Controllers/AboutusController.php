@@ -14,6 +14,7 @@ class AboutusController extends Controller
     public function index()
     {
         return view('SerfarL.AboutusL')
+            ->with('nav', 'aboutus')
             ->with('validIndex', 'NO')
             ->with('fondo1', "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
     }

@@ -2,14 +2,13 @@
 
 @section('title', '- Portafolio')
 
-@section('breadcrumbs')
-  <ol class="breadcrumb breadcrumb-state">
-    <li><a href="{{route('routeHome')}}">Inicio</a></li>
-    <li class="active">Portafolio</li>
-  </ol>
+@section('style')
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
 @endsection
 
 @section('content')
+  <br>
   <div class="container marketing">
     <div class="text-center title ">
       Portafolio
@@ -20,7 +19,32 @@
         Contamos con las mejores y las mas reconocidas marcas del pais, asi garantizamos la calidad de nuestros productos.
       </p><br>
     </div>
-
+    <div class="center">
+      <form class="form-horizontal" action="{{route('Portfolio.store')}}" method="post">
+        <div class="form-group">
+          <div class="col-sm-4">
+            <input type="text" name="name" class="form-control" placeholder="Buscar producto">
+          </div>
+          <div class="col-sm-3">
+            <select class="form-control selectpicker" name="category">
+              <option value="null">Selecionar Categoria..</option>
+              <option value="Medicamento">Medicamentos</option>
+              <option value="Dispositivo Medico">Dispositivos Medicos</option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <select class="form-control selectpicker" data-live-search="true" name="lab">
+              <option value="null">Selecionar Laboratorio..</option>
+              @foreach ($laboratory as $laboratory)
+                <option value="{{$laboratory->id}}">{{$laboratory->name}}</option>
+              @endforeach
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary col-sm-1 ">Buscar</button>
+        </div>
+      </form>
+    </div>
+    <br><br>
     <div class="row center">
       @foreach($product as $product)
         @if (!empty($product->pro_image))
@@ -41,4 +65,19 @@
     </div>
 
   </div>
+@endsection
+
+@section('script')
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#li-ini").removeAttr("class");
+      $("#li-med").attr("class","active");
+      $("#li-lab").removeAttr("class");
+      $("#li-hum").removeAttr("class");
+      $("#li-qui").removeAttr("class");
+      $("#li-con").removeAttr("class");
+    });
+  </script>
 @endsection

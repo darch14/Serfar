@@ -35,6 +35,16 @@
 	    </div>
 
   	</div>
-
-
+@endsection
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#li-ini").removeAttr("class");
+      $("#li-med").removeAttr("class");
+      $("#li-lab").removeAttr("class");
+      $("#li-hum").attr("class","active");
+      $("#li-qui").removeAttr("class");
+      $("#li-con").removeAttr("class");
+    });
+  </script>
 @endsection

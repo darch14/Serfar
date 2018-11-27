@@ -15,11 +15,13 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-      $product = product::orderBy('id', 'ASC')->get();
+      $product = product::orderBy('id', 'ASC')->paginate(8);
       $laboratory = laboratory::orderBy('id', 'ASC')->get();
 
       return view('SerfarL.Portfolio')
             ->with('product', $product)
+            ->with('render', $product->render())
+            ->with('modal', $modal)
             ->with('laboratory', $laboratory)
             ->with('validIndex', 'NO')
             ->with('nav', 'portafolio')
@@ -54,7 +56,7 @@ class PortfolioController extends Controller
       $laboratory = laboratory::orderBy('id', 'ASC')->get();
 
       if (!empty($request->name)) {
-        $product = $product->where('name', $request->name);
+        $product = $product->where('name', 'like', '%'.$request->name.'%');
       }
       if ($request->category != "null") {
         $product = $product->where('category', $request->category);
@@ -62,10 +64,12 @@ class PortfolioController extends Controller
       if ($request->lab != "null") {
         $product = $product->where('laboratory_id', $request->lab);
       }
-      $product = $product->get();
+      $product = $product->paginate(8);
 
       return view('SerfarL.Portfolio')
             ->with('product', $product)
+            ->with('render', $product->render())
+            ->with('modal', $modal)
             ->with('laboratory', $laboratory)
             ->with('validIndex', 'NO')
             ->with('nav', 'portafolio')

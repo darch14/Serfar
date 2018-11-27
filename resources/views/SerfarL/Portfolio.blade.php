@@ -20,7 +20,8 @@
       </p><br>
     </div>
     <div class="center">
-      <form class="form-horizontal" action="{{route('Portfolio.store')}}" method="post">
+      <form class="form-horizontal" action="{{route('PortfolioStore')}}" method="post">
+        {{ csrf_field() }}
         <div class="form-group">
           <div class="col-sm-4">
             <input type="text" name="name" class="form-control" placeholder="Buscar producto">
@@ -63,7 +64,9 @@
         @endif
       @endforeach
     </div>
-
+    {{ $render }}
+    <button type="button" data-toggle="modal" data-target="#ModalCondition" hidden id="modalButton" name="button"></button>
+    @include('SerfarL.ModalCondition')
   </div>
 @endsection
 
@@ -78,6 +81,10 @@
       $("#li-hum").removeAttr("class");
       $("#li-qui").removeAttr("class");
       $("#li-con").removeAttr("class");
+
+      if ({{$modal}} == "OK") {
+        $('#modalButton').click();
+      }
     });
   </script>
 @endsection

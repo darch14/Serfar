@@ -35,7 +35,7 @@ Route::get('serfarltda/ContactL', [
 Route::get('serfarltda/Portfolio', [
     'as' => 'Portfolio', 'uses' => 'PortfolioController@index'
 ]);
-Route::get('Product/Portfolio/store', 'PortfolioController@store')->name('Portfolio.store');
+Route::post('Product/Portfolio/store', 'PortfolioController@store')->name('PortfolioStore');
 Route::get('Product/{id}/Portfolio', 'PortfolioController@detail')->name('PortfolioDetail');
 Route::resource('ContactL','ContactLController');
 // -----------------------------------------------------------------------------

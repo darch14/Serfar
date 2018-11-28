@@ -11,7 +11,7 @@
 
 @section('content')
   <div class="container">
-    <div class="text-center title ">
+    <div class="text-center title title-span">
       Contacte con Nosotros
     </div><hr class="style13"><br><br>
     @include('fragment.error')

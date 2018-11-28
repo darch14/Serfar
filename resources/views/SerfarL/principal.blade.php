@@ -58,31 +58,50 @@
         </div>
       </div>
     @else
-      <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="span12 img-fondo-linea">
         <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" {{-- href="{{route('Swelcome')}}" --}}>
-              <img src="{{asset('images/logos/favicon.png')}}">
-            </a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav" id="lista_navbar">
-              <li id="li-ini"><a href="{{route('routeHome')}}">Inicio</a></li>
-              <li id="li-med"><a href="{{route('Portfolio')}}">Portafolio</a></li>
-              <li id="li-lab"><a href="{{route('Laboraty')}}">Laboratorios</a></li>
-              <li id="li-hum"><a href="{{route('HumanL')}}">Equipo humano</a></li>
-              <li id="li-qui"><a href="{{route('Aboutus')}}">Quienes somos</a></li>
-              <li id="li-con"><a href="{{route('ContactL')}}">Contacto</a></li>
-            </ul>
+          <div class="">
+            <div class="col-md-4 center">
+
+            </div>
+            <div class="col-md-4 center">
+              <br><img src="{{asset('images/logos/logo-s.png')}}" alt=""><br><br>
+            </div>
+            <div class="col-md-4 center">
+
+            </div>
           </div>
         </div>
-      </nav>
+      </div>
+      <div class="container">
+        <div class="col-xs-12 rounded">
+          <nav class="navbar navbar-inverse ">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" {{-- href="{{route('Swelcome')}}" --}}>
+                  <img src="{{asset('images/logos/favicon.png')}}">
+                </a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" id="lista_navbar">
+                  <li id="li-ini"><a href="{{route('routeHome')}}">Inicio</a></li>
+                  <li id="li-med"><a href="{{route('Portfolio')}}">Portafolio</a></li>
+                  <li id="li-lab"><a href="{{route('Laboraty')}}">Laboratorios</a></li>
+                  <li id="li-hum"><a href="{{route('HumanL')}}">Equipo humano</a></li>
+                  <li id="li-qui"><a href="{{route('Aboutus')}}">Quienes somos</a></li>
+                  <li id="li-con"><a href="{{route('ContactL')}}">Contacto</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
     @endif
 
     <!-- Fin Navbar -->

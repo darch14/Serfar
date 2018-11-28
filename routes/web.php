@@ -37,6 +37,7 @@ Route::get('serfarltda/Portfolio', [
 ]);
 Route::post('Product/Portfolio/store', 'PortfolioController@store')->name('PortfolioStore');
 Route::get('Product/{id}/Portfolio', 'PortfolioController@detail')->name('PortfolioDetail');
+Route::get('Product/{variable}/condition', 'PortfolioController@modalconditionF')->name('PortfolioCondition');
 Route::resource('ContactL','ContactLController');
 // -----------------------------------------------------------------------------
 

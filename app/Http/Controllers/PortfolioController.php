@@ -5,9 +5,30 @@ namespace Serfar\Http\Controllers;
 use Illuminate\Http\Request;
 use Serfar\product;
 use Serfar\laboratory;
+use Cookie;
 
 class PortfolioController extends Controller
 {
+
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param  int  $variable
+   * @return \Illuminate\Http\Response
+   */
+    public function modalconditionF($variable){
+      if ($variable == "V") {
+        if (Cookie::get('condition') != "OK") {
+          return "NO";
+        }else {
+          return "OK";
+        }
+      }else{
+        Cookie::queue('condition', 'OK', 3*60*60);//3horas
+        return self::index();
+      }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +38,7 @@ class PortfolioController extends Controller
     {
       $product = product::orderBy('id', 'ASC')->paginate(8);
       $laboratory = laboratory::orderBy('id', 'ASC')->get();
+      $modal = self::modalconditionF("V");
 
       return view('SerfarL.Portfolio')
             ->with('product', $product)
@@ -65,6 +87,7 @@ class PortfolioController extends Controller
         $product = $product->where('laboratory_id', $request->lab);
       }
       $product = $product->paginate(8);
+      $modal = self::modalconditionF("V");
 
       return view('SerfarL.Portfolio')
             ->with('product', $product)

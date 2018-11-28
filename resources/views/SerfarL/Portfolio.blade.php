@@ -10,7 +10,7 @@
 @section('content')
   <br>
   <div class="container marketing">
-    <div class="text-center title ">
+    <div class="text-center title title-span">
       Portafolio
     </div>
     <hr class="style13">
@@ -20,7 +20,7 @@
       </p><br>
     </div>
     <div class="center">
-      <form class="form-horizontal" action="{{route('PortfolioStore')}}" method="post">
+      <form class="form-horizontal" action="{{route('PortfolioStore')}}" method="post" autocomplete="off">
         {{ csrf_field() }}
         <div class="form-group">
           <div class="col-sm-4">
@@ -82,7 +82,7 @@
       $("#li-qui").removeAttr("class");
       $("#li-con").removeAttr("class");
 
-      if ({{$modal}} == "OK") {
+      if ("{{$modal}}" != "OK") {
         $('#modalButton').click();
       }
     });

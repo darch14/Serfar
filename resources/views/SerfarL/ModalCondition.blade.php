@@ -1,5 +1,5 @@
 <!-- Modal -->
-  <div class="modal fade" id="ModalCondition" role="dialog">
+  <div class="modal fade" id="ModalCondition" data-backdrop="static" data-keyboard="false" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
@@ -13,7 +13,7 @@
         </div>
         <div class="modal-footer">
           <a href="{{ route('PortfolioCondition', 'F') }}" role="button" class="btn btn-primary">Estoy de Acuerdo</a>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <a href="{{ route('routeHome') }}" role="button" class="btn btn-default">Close</a>
         </div>
       </div>
     </div>

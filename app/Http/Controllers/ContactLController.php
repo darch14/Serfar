@@ -71,10 +71,17 @@ class ContactLController extends Controller
           ->withInput(/*Request::except('')*/);
       }else {
         //return $request->input('nombre');
-        Mail::send('SerfarL.emailL', $request->all(), function($msj){
-          $msj->subject('Solicitud Pagina Web Serfar');
-          $msj->to('web.serfar@gmail.com');
-        });
+        if ($request->Asunto == "Ventas") {
+          Mail::send('SerfarL.emailL', $request->all(), function($msj){
+            $msj->subject('Solicitud Pagina Web Serfar');
+            $msj->to('tania.ventasserfar@hotmail.com');
+          });
+        }else{
+          Mail::send('SerfarL.emailL', $request->all(), function($msj){
+            $msj->subject('Solicitud Pagina Web Serfar');
+            $msj->to('servicioalclienteserfar@gmail.com');
+          });
+        }
         Session::flash('message','Mensaje enviado correctamente');
         return back();
       }

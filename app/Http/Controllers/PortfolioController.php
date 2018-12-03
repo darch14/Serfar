@@ -25,7 +25,7 @@ class PortfolioController extends Controller
         }
       }else{
         Cookie::queue('condition', 'OK', 3*60*60);//3horas
-        return self::index();
+        return redirect()->action('PortfolioController@index');//self::index();
       }
     }
 
@@ -63,6 +63,7 @@ class PortfolioController extends Controller
         return view('SerfarL.PortfolioDetail')
               ->with('product', $product)
               ->with('validIndex', 'NO')
+              ->with('nav', 'portafolio')
               ->with('fondo1', "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==");
     }
 

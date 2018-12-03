@@ -9,7 +9,7 @@
           <h4 class="modal-title center">Condiciones legales</h4>
         </div>
         <div class="modal-body">
-
+          
         </div>
         <div class="modal-footer">
           <a href="{{ route('PortfolioCondition', 'F') }}" role="button" class="btn btn-primary">Estoy de Acuerdo</a>

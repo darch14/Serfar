@@ -61,9 +61,6 @@
 
       <!-- /END THE FEATURETTES -->
     </div>
-    <script type="text/javascript">
-      $("#li-ini").attr("class","active");
-    </script>
 @endsection()
 @section('script')
   <script type="text/javascript">

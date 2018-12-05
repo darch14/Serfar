@@ -20,16 +20,16 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <input type="text" class="form-control" name="nombre"  placeholder="nombre">
+            <input type="text" class="form-control" name="nombre" value="{{old('nombre')}}" placeholder="nombre">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" name="empresa"  placeholder="empresa">
+            <input type="text" class="form-control" name="empresa" value="{{old('empresa')}}" placeholder="empresa">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" name="correo"  placeholder="correo">
+            <input type="email" class="form-control" name="correo" value="{{old('correo')}}" placeholder="correo">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" name="telefono"  placeholder="telefono">
+            <input type="text" class="form-control" name="telefono" value="{{old('telefono')}}" placeholder="telefono">
           </div>
           <!--<div class="form-group">
             <input type="text" class="form-control" placeholder="Text input">
@@ -44,7 +44,7 @@
             </select>
           </div>
           <div class="form-group">
-            <textarea class="form-control" rows="4" name="mensaje"  placeholder="Descripción"></textarea>
+            <textarea class="form-control" rows="4" name="mensaje"  placeholder="Descripción">{{old('Descripción')}}</textarea>
           </div>
         </div>
       </div>

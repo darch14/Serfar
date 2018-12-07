@@ -136,7 +136,7 @@ class AdvisorAdminController extends Controller
     {
         $advisor = advisor::find($id);
         $advisor->delete();
-        //dd('destroy');
+        
         return redirect()->route('AdvisorAdmin.index')->with('notification', $advisor->name .' '. $advisor->lastname1 . ' Se a Elimino satisfactoriamente!');
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Serfar\product;
 use Serfar\laboratory;
 use Cookie;
+use Illuminate\Support\Facades\Crypt;
 
 class PortfolioController extends Controller
 {
@@ -58,7 +59,7 @@ class PortfolioController extends Controller
      */
     public function detail($id)
     {
-        $product = product::find($id);
+        $product = product::find(Crypt::decrypt($id));
 
         return view('SerfarL.PortfolioDetail')
               ->with('product', $product)

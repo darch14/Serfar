@@ -54,7 +54,7 @@
               <img src="{{ asset('images/prod/'.$product->pro_image->name) }}" alt="">
               <div class="caption">
                 <h3 class="text-capitalize">{{$product->name}}</h3>
-                <p><a href="{{ route('PortfolioDetail', $product->id) }}" class="btn btn-primary btn-block" role="button">
+                <p><a href="{{ route('PortfolioDetail', Crypt::encrypt($product->id)) }}" class="btn btn-primary btn-block" role="button">
                   <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
                   saber mas
                 </a></p>
